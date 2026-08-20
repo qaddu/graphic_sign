@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="icon" type="image/png" href="logo.webp">
+
+    <!-- ================= PREMIUM SEO OPTIMIZATION ================= -->
+    <title>About Graphic Sign | Top Signage Manufacturer in Greater Noida</title>
+    <meta name="description" content="Learn about Graphic Sign, Greater Noida's leading in-house manufacturer of 3D acrylic letters, LED boards, and signage. Equipped with CNC, laser, and vinyl machines.">
+    <meta name="keywords" content="About Graphic Sign, Sign Board Manufacturer Greater Noida, In-house Signage Factory, CNC Router Signage, CO2 Laser Cutting Noida, CEO Graphic Sign, Pari Chowk Sign Makers">
+    <meta name="author" content="Graphic Sign">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://yourwebsite.com/about.html">
+
+    <!-- JSON-LD Structured Data (AboutPage & LocalBusiness combination) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "AboutPage",
+          "url": "https://yourwebsite.com/about.html",
+          "name": "About Graphic Sign",
+          "description": "Information about Graphic Sign's history, in-house machinery, and mission to deliver premium signage in Greater Noida."
+        },
+        {
+          "@type": "LocalBusiness",
+          "name": "Graphic Sign",
+          "image": "logo.png",
+          "description": "Premium signage manufacturer in Greater Noida featuring in-house CO2 Laser, CNC Router, and Vinyl Printing capabilities.",
+          "telephone": "+916396430466",
+          "email": "graphicsign159@gmail.com",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Near Zepto Store, Barat Ghar Road, Tugalpur",
+            "addressLocality": "Pari Chowk, Greater Noida",
+            "addressRegion": "Uttar Pradesh",
+            "postalCode": "201310",
+            "addressCountry": "IN"
+          },
+          "knowsAbout": ["3D Acrylic Letters", "CNC Routing", "CO2 Laser Cutting", "Glow Sign Boards", "Vinyl Printing"]
+        }
+      ]
+    }
+    </script>
+
+    <!-- Tailwind CSS & Font Icons -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Oswald:wght@600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-dark-edge: #0b101a; 
+            --bg-glow-center: #1a2a47; 
+            --accent-orange: #d86d28; 
+            --light-bg: #f8f9fa;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--light-bg); 
+            color: #333333;
+            margin: 0;
+            overflow-x: hidden;
+        }
+
+        .header-bg {
+            background-color: var(--bg-dark-edge);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .font-oswald { font-family: 'Oswald', sans-serif; }
+        .text-orange-accent { color: var(--accent-orange); }
+        .tracking-super-wide { letter-spacing: 0.2em; }
+
+        /* Modern Machinery Card Enhancements (Updated for Images) */
+        .machine-card {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            z-index: 1;
+        }
+        .machine-card::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-orange), #f43f5e);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+            z-index: 10;
+            border-bottom-left-radius: 0.75rem;
+            border-bottom-right-radius: 0.75rem;
+        }
+        .machine-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+            border-color: transparent;
+        }
+        .machine-card:hover::before {
+            transform: scaleX(1);
+        }
+        .icon-wrapper {
+            transition: transform 0.4s ease;
+        }
+        .machine-card:hover .icon-wrapper {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        /* Process Step Cards */
+        .process-card {
+            position: relative;
+            z-index: 1;
+            transition: all 0.3s ease;
+        }
+        .process-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.06);
+        }
+        .process-number {
+            position: absolute;
+            top: -20px;
+            right: 10px;
+            font-size: 100px;
+            font-family: 'Oswald', sans-serif;
+            font-weight: 700;
+            color: rgba(0,0,0,0.03);
+            z-index: -1;
+            line-height: 1;
+            transition: color 0.3s ease;
+        }
+        .process-card:hover .process-number {
+            color: rgba(216, 109, 40, 0.08);
+        }
+
+        /* Working WhatsApp CTA */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25d366;
+            color: white;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 35px;
+            box-shadow: 0px 4px 15px rgba(0,0,0,0.3);
+            z-index: 100;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .whatsapp-float:hover { 
+            transform: scale(1.1); 
+            box-shadow: 0px 6px 20px rgba(37, 211, 102, 0.4);
+        }
+
+        /* Image Masking for About Section */
+        .image-accent-border {
+            position: relative;
+        }
+        .image-accent-border::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            right: -15px;
+            width: 100%;
+            height: 100%;
+            border: 3px solid var(--accent-orange);
+            border-radius: 1rem;
+            z-index: -1;
+        }
+
+        /* Custom scrollbar for modal */
+        .custom-scrollbar::-webkit-scrollbar { width: 6px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: #f1f1f1; border-radius: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: #a1a1aa; }
+    </style>
+</head>
+<body>
+
+    <!-- ================= RESPONSIVE NAVBAR ================= -->
+    <header class="header-bg py-4 md:py-5 w-full z-50 sticky top-0 shadow-lg">
+        <div class="container mx-auto px-5 md:px-8 max-w-7xl flex justify-between items-center">
+            
+            <!-- Logo -->
+            <div class="w-auto lg:w-1/4">
+                <a href="index.html" class="inline-block">
+                    <img src="logo.webp" alt="Graphic Sign Greater Noida" class="h-8 md:h-10 object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <div style="display: none;" class="font-extrabold text-xl md:text-2xl tracking-tighter italic bg-white text-black px-2 py-1 rounded-sm">
+                        GRAPHIC <span class="text-orange-accent">SIGN</span>
+                    </div>
+                </a>
+            </div>
+            
+            <!-- Mobile Menu Button -->
+            <div class="lg:hidden flex items-center">
+                <button id="mobile-btn" aria-label="Open Mobile Menu" class="text-white text-2xl focus:outline-none hover:text-[var(--accent-orange)] transition">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+
+            <!-- Desktop Navbar Links (About Us is highlighted) -->
+            <div class="hidden lg:flex w-2/4 justify-center">
+                <nav class="flex space-x-8 items-center text-[15px] font-semibold tracking-wider">
+                    <a href="index.html" class="text-white hover:text-gray-300 transition">Home</a>
+                    <a href="services.html" class="text-white hover:text-gray-300 transition">Services</a>
+                    <a href="#" class="text-[var(--accent-orange)] transition">About Us</a>
+                    <a href="works.html" class="text-white hover:text-gray-300 transition">Our Work</a>
+                    <a href="contact.html" class="text-white hover:text-gray-300 transition">Contact</a>
+                </nav>
+            </div>
+
+            <!-- Desktop Right CTA (Triggers Quote Modal) -->
+            <div class="hidden lg:flex w-1/4 justify-end items-center space-x-6">
+                <a href="tel:6396430466" class="flex items-center font-bold text-[14px] text-white whitespace-nowrap hover:text-[#d86d28] transition duration-300">
+                    <i class="fas fa-phone-alt text-orange-accent mr-2"></i> 6396430466
+                </a>
+                <a href="javascript:void(0)" onclick="openQuoteModal()" class="bg-[#d86d28] hover:bg-[#c45a1c] text-white px-6 py-2.5 rounded-[6px] font-bold text-[13px] tracking-wide transition-all transform hover:-translate-y-1 duration-300 whitespace-nowrap">
+                    GET QUOTATION
+                </a>
+            </div>
+        </div>
+
+        <!-- Mobile Dropdown Menu -->
+        <div id="mobile-menu" class="hidden absolute top-full left-0 w-full bg-[#0b101a] border-t border-gray-800 flex flex-col items-center py-6 space-y-5 lg:hidden shadow-2xl z-50">
+            <a href="index.html" class="text-white text-[16px] font-semibold tracking-wide hover:text-[var(--accent-orange)]">Home</a>
+            <a href="services.html" class="text-white text-[16px] font-semibold tracking-wide hover:text-[var(--accent-orange)]">Services</a>
+            <a href="#" class="text-[var(--accent-orange)] text-[16px] font-semibold tracking-wide">About Us</a>
+            <a href="works.html" class="text-white text-[16px] font-semibold tracking-wide hover:text-[var(--accent-orange)]">Our Work</a>
+            <a href="contact.html" class="text-white text-[16px] font-semibold tracking-wide hover:text-[var(--accent-orange)]">Contact</a>
+            <a href="tel:6396430466" class="text-white text-[16px] font-bold mt-2"><i class="fas fa-phone-alt text-[var(--accent-orange)] mr-2"></i> 6396430466</a>
+            <a href="javascript:void(0)" onclick="openQuoteModal(); document.getElementById('mobile-menu').classList.add('hidden');" class="bg-[#d86d28] text-white px-8 py-3 rounded-[6px] font-bold text-[14px] tracking-wide w-11/12 text-center mt-2">GET QUOTATION</a>
+        </div>
+    </header>
+
+    <!-- ================= PAGE HEADER ================= -->
+    <section class="bg-[var(--bg-dark-edge)] pt-16 pb-20 border-b border-gray-800 text-center relative overflow-hidden">
+        <div class="absolute inset-0 z-0 opacity-20">
+            <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-[radial-gradient(ellipse_at_center,_var(--bg-glow-center)_0%,_transparent_70%)]"></div>
+        </div>
+        <div class="container mx-auto px-5 relative z-10">
+            <h1 class="font-oswald text-5xl md:text-6xl font-bold text-white mb-4 tracking-tight">Who <span class="text-orange-accent">We Are</span></h1>
+            <p class="text-gray-400 text-[16px] md:text-[18px] max-w-2xl mx-auto leading-relaxed">
+                Learn about the team, technology, and passion behind Greater Noida's most trusted signage manufacturing facility.
+            </p>
+        </div>
+    </section>
+
+    <!-- ================= OUR STORY / STORE IMAGE SECTION ================= -->
+    <section class="py-20 md:py-28 bg-white relative overflow-hidden">
+        <!-- Subtle decorative background element -->
+        <div class="absolute top-0 left-0 w-full h-full overflow-hidden z-0 pointer-events-none opacity-[0.02]">
+            <div class="absolute top-10 left-10 w-96 h-96 bg-[#d86d28] rounded-full blur-3xl"></div>
+        </div>
+
+        <div class="container mx-auto px-6 max-w-7xl relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                
+                <!-- Left: Store Image -->
+                <div class="relative w-full image-accent-border px-4 md:px-0">
+                    <img src="shop2.webp" alt="Graphic Sign Store Facility" class="w-full h-auto object-cover rounded-2xl shadow-2xl relative z-10" onerror="this.src='https://via.placeholder.com/800x600?text=Graphic+Sign+Store'">
+                    <!-- Floating badge over image -->
+                    <div class="absolute -bottom-6 -left-4 md:-left-8 bg-white p-4 md:p-6 rounded-xl shadow-xl z-20 flex items-center space-x-4 border border-gray-100">
+                        <div class="w-12 h-12 bg-gray-900 rounded-full flex items-center justify-center text-[var(--accent-orange)] text-xl">
+                            <i class="fas fa-medal"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-900 text-[18px]">100% In-House</h4>
+                            <p class="text-[13px] text-gray-500">Design to Installation</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Content -->
+                <div>
+                    <h3 class="text-orange-accent font-bold text-[13px] uppercase tracking-super-wide mb-3">OUR STORY</h3>
+                    <h2 class="font-oswald text-4xl md:text-[50px] font-bold text-gray-900 mb-6 leading-tight">Crafting Identity, <br>Building Visibility.</h2>
+                    
+                    <p class="text-[16px] text-gray-600 mb-6 leading-relaxed">
+                        Located in the heart of Greater Noida near Pari Chowk, <strong>Graphic Sign</strong> has grown into a trusted and premier partner for retail stores, corporate offices, clinics, and global brands across the Delhi NCR region. 
+                    </p>
+                    <p class="text-[16px] text-gray-600 mb-8 leading-relaxed">
+                        We don't just act as a middleman. We pride ourselves on executing every single step of the signage process within our own facility. From the initial digital blueprint to the precision cutting of raw materials, and finally the safe structural installation on your storefront—we control the quality so you get the best.
+                    </p>
+
+                    <div class="grid grid-cols-2 gap-6 mt-8 border-t border-gray-100 pt-8">
+                        <div>
+                            <h4 class="font-oswald text-3xl font-bold text-gray-900 mb-1">Fast</h4>
+                            <p class="text-sm text-gray-500">Turnaround Times</p>
+                        </div>
+                        <div>
+                            <h4 class="font-oswald text-3xl font-bold text-gray-900 mb-1">Direct</h4>
+                            <p class="text-sm text-gray-500">Factory Pricing</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= IN-HOUSE MACHINERY SETUP ================= -->
+    <section class="py-20 md:py-24 bg-gray-50 border-y border-gray-200">
+        <div class="container mx-auto px-5 max-w-7xl">
+            
+            <div class="text-center mb-16">
+                <h3 class="text-orange-accent font-bold text-[13px] uppercase tracking-super-wide mb-3">OUR INFRASTRUCTURE</h3>
+                <h2 class="font-oswald text-3xl md:text-[45px] font-bold text-gray-900 leading-tight">State-of-the-Art <br class="md:hidden">Machinery Setup</h2>
+                <p class="text-[16px] text-gray-500 mt-5 max-w-2xl mx-auto leading-relaxed">
+                    By investing in the latest cutting and printing technology, we ensure precise cuts, vibrant colors, and unparalleled durability for every board we make.
+                </p>
+            </div>
+
+            <!-- 4 Column Grid for Machines -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 text-left">
+                
+                <!-- Machine 1: CO2 Laser -->
+                <div class="machine-card bg-white rounded-xl shadow-sm border border-gray-200 flex flex-col p-0 pb-6">
+                    <img src="co2.webp" alt="CO2 Laser Machine" class="w-full h-48 object-cover rounded-t-xl" onerror="this.src='https://via.placeholder.com/400x300?text=CO2+Laser'">
+                    <div class="px-6 flex flex-col items-center text-center">
+                        <div class="icon-wrapper w-16 h-16 bg-[#1a2332] rounded-full flex items-center justify-center -mt-8 mb-4 shadow-md border-4 border-white relative z-10">
+                            <i class="fas fa-fire text-[var(--accent-orange)] text-2xl"></i>
+                        </div>
+                        <h4 class="font-oswald text-[20px] font-bold text-gray-900 mb-3 tracking-wide">CO2 Laser Cutting</h4>
+                        <p class="text-[14px] text-gray-600 leading-relaxed">High-precision laser technology used for cutting acrylic sheets with perfectly polished, crystal-clear edges for 3D lettering.</p>
+                    </div>
+                </div>
+
+                <!-- Machine 2: CNC Router -->
+                <div class="machine-card bg-white rounded-xl shadow-sm border border-gray-200 flex flex-col p-0 pb-6">
+                    <img src="cnc.webp" alt="CNC Router Machine" class="w-full h-48 object-cover rounded-t-xl" onerror="this.src='https://via.placeholder.com/400x300?text=CNC+Router'">
+                    <div class="px-6 flex flex-col items-center text-center">
+                        <div class="icon-wrapper w-16 h-16 bg-[#1a2332] rounded-full flex items-center justify-center -mt-8 mb-4 shadow-md border-4 border-white relative z-10">
+                            <i class="fas fa-microchip text-[var(--accent-orange)] text-2xl"></i>
+                        </div>
+                        <h4 class="font-oswald text-[20px] font-bold text-gray-900 mb-3 tracking-wide">CNC Router</h4>
+                        <p class="text-[14px] text-gray-600 leading-relaxed">Heavy-duty computerized routing used to carve out tough materials like ACP, WPC, and MDF boards with absolute accuracy.</p>
+                    </div>
+                </div>
+
+                <!-- Machine 3: Vinyl Printing -->
+                <div class="machine-card bg-white rounded-xl shadow-sm border border-gray-200 flex flex-col p-0 pb-6">
+                    <img src="vinyl.webp" alt="Vinyl Printing Machine" class="w-full h-48 object-cover rounded-t-xl" onerror="this.src='https://via.placeholder.com/400x300?text=Vinyl+Printer'">
+                    <div class="px-6 flex flex-col items-center text-center">
+                        <div class="icon-wrapper w-16 h-16 bg-[#1a2332] rounded-full flex items-center justify-center -mt-8 mb-4 shadow-md border-4 border-white relative z-10">
+                            <i class="fas fa-print text-[var(--accent-orange)] text-2xl"></i>
+                        </div>
+                        <h4 class="font-oswald text-[20px] font-bold text-gray-900 mb-3 tracking-wide">Vinyl Printing</h4>
+                        <p class="text-[14px] text-gray-600 leading-relaxed">Wide-format eco-solvent printers delivering vibrant, high-resolution graphics for glow signs, flex boards, and window wraps.</p>
+                    </div>
+                </div>
+
+                <!-- Machine 4: Plotter Cutting -->
+                <div class="machine-card bg-white rounded-xl shadow-sm border border-gray-200 flex flex-col p-0 pb-6">
+                    <img src="plotter.webp" alt="Vinyl Plotter Cutting" class="w-full h-48 object-cover rounded-t-xl" onerror="this.src='https://via.placeholder.com/400x300?text=Plotter+Cutter'">
+                    <div class="px-6 flex flex-col items-center text-center">
+                        <div class="icon-wrapper w-16 h-16 bg-[#1a2332] rounded-full flex items-center justify-center -mt-8 mb-4 shadow-md border-4 border-white relative z-10">
+                            <i class="fas fa-cut text-[var(--accent-orange)] text-2xl"></i>
+                        </div>
+                        <h4 class="font-oswald text-[20px] font-bold text-gray-900 mb-3 tracking-wide">Plotter Cutting</h4>
+                        <p class="text-[14px] text-gray-600 leading-relaxed">Dedicated vinyl cutting plotters used to create sharp, custom-colored decals, branding stickers, and frosted glass films.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= THE MANUFACTURING PROCESS (Final Good) ================= -->
+    <section class="py-24 bg-white relative overflow-hidden">
+        <div class="container mx-auto px-5 text-center max-w-7xl relative z-10">
+            <h3 class="text-orange-accent font-bold text-[12px] uppercase tracking-super-wide mb-3">FABRICATION PROCESS</h3>
+            <h2 class="font-oswald text-4xl md:text-[50px] font-bold text-gray-900 mb-16 leading-tight">How We Build The Final Good</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-left">
+                
+                <!-- Step 1 -->
+                <div class="process-card bg-gray-50 p-8 rounded-2xl border border-gray-100">
+                    <span class="process-number">01</span>
+                    <div class="w-12 h-12 bg-white border border-gray-200 rounded-full flex items-center justify-center mb-6 shadow-sm">
+                        <i class="fas fa-drafting-compass text-[var(--accent-orange)] text-lg"></i>
+                    </div>
+                    <h4 class="font-bold text-xl text-gray-900 mb-3 font-oswald tracking-wide">Design & Vectoring</h4>
+                    <p class="text-[14px] text-gray-500 leading-relaxed">We convert your logo into precise vector files, determining exact scaling, material layers, and LED mapping before production begins.</p>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="process-card bg-gray-50 p-8 rounded-2xl border border-gray-100">
+                    <span class="process-number">02</span>
+                    <div class="w-12 h-12 bg-white border border-gray-200 rounded-full flex items-center justify-center mb-6 shadow-sm">
+                        <i class="fas fa-ruler-combined text-[var(--accent-orange)] text-lg"></i>
+                    </div>
+                    <h4 class="font-bold text-xl text-gray-900 mb-3 font-oswald tracking-wide">Precision Cutting</h4>
+                    <p class="text-[14px] text-gray-500 leading-relaxed">Using our CO2 Lasers and CNC Routers, the raw acrylic and ACP sheets are cut to absolute millimeter precision based on the digital design.</p>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="process-card bg-gray-50 p-8 rounded-2xl border border-gray-100">
+                    <span class="process-number">03</span>
+                    <div class="w-12 h-12 bg-white border border-gray-200 rounded-full flex items-center justify-center mb-6 shadow-sm">
+                        <i class="fas fa-plug text-[var(--accent-orange)] text-lg"></i>
+                    </div>
+                    <h4 class="font-bold text-xl text-gray-900 mb-3 font-oswald tracking-wide">Assembly & Wiring</h4>
+                    <p class="text-[14px] text-gray-500 leading-relaxed">Our fabricators assemble the 3D structures, applying premium vinyl if required, and securely wire the waterproof LED modules internally.</p>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="process-card bg-gray-50 p-8 rounded-2xl border border-gray-100">
+                    <span class="process-number">04</span>
+                    <div class="w-12 h-12 bg-white border border-gray-200 rounded-full flex items-center justify-center mb-6 shadow-sm">
+                        <i class="fas fa-search-plus text-[var(--accent-orange)] text-lg"></i>
+                    </div>
+                    <h4 class="font-bold text-xl text-gray-900 mb-3 font-oswald tracking-wide">Quality Check</h4>
+                    <p class="text-[14px] text-gray-500 leading-relaxed">Every board undergoes a strict illumination and structural integrity test to ensure no light leaks and maximum durability before dispatch.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= MESSAGE FROM CEO ================= -->
+    <section class="py-24 bg-[var(--bg-dark-edge)] relative overflow-hidden">
+        <!-- Background accents -->
+        <div class="absolute inset-0 z-0">
+            <div class="absolute top-1/2 left-0 w-full h-full bg-[radial-gradient(circle_at_left,_var(--bg-glow-center)_0%,_transparent_60%)]"></div>
+        </div>
+
+        <div class="container mx-auto px-6 max-w-5xl relative z-10">
+            <div class="bg-[#131c2d] rounded-3xl p-10 md:p-16 border border-gray-800 shadow-2xl relative">
+                <!-- Large Quote Icon -->
+                <i class="fas fa-quote-left absolute top-8 left-10 md:left-14 text-6xl text-gray-800 opacity-50"></i>
+                
+                <div class="relative z-10 pt-8">
+                    <h3 class="text-orange-accent font-bold text-[13px] uppercase tracking-super-wide mb-6 text-center md:text-left">MESSAGE FROM THE FOUNDER</h3>
+                    
+                    <p class="text-white text-[18px] md:text-[22px] leading-relaxed font-medium mb-10 italic">
+                        "At Graphic Sign, our mission has always been simple: to make your brand impossible to miss. We understand that your storefront is the very face of your business, the first impression you make on a customer. 
+                        <br><br>
+                        By bringing the latest CNC and laser technologies directly into our in-house facility, we cut out the middlemen. This allows us to ensure that every board, every illuminated letter, and every vinyl print meets our strict personal standards of quality and durability. We don't just make signs; we build your brand's physical identity."
+                    </p>
+
+                    <div class="flex items-center justify-between border-t border-gray-700 pt-8 flex-col md:flex-row space-y-4 md:space-y-0">
+                        <div class="flex items-center space-x-4">
+                            <!-- CEO Icon Placeholder -->
+                            <div class="w-16 h-16 bg-gradient-to-br from-[#d86d28] to-[#f43f5e] rounded-full flex items-center justify-center shadow-lg border-2 border-gray-800">
+                                <i class="fas fa-user-tie text-white text-2xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-oswald text-2xl font-bold text-white tracking-wide">CEO & Founder</h4>
+                                <span class="text-gray-400 text-[14px]">Graphic Sign, Greater Noida</span>
+                            </div>
+                        </div>
+                        
+                        <a href="contact.html" class="inline-block border border-gray-500 text-white px-8 py-3 rounded-[6px] font-bold text-[13px] tracking-wide transition-all transform hover:-translate-y-1 hover:bg-[var(--accent-orange)] hover:border-[var(--accent-orange)] duration-300">
+                            WORK WITH US
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= PREMIUM FOOTER ================= -->
+    <footer class="bg-[var(--bg-dark-edge)] pt-12 md:pt-16 pb-8 border-t border-gray-800 text-gray-400 text-[13px]">
+        <div class="container mx-auto px-5 max-w-7xl">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12 text-left">
+                
+                <div>
+                    <img src="logo.png" alt="Graphic Sign" class="h-10 mb-6 object-contain bg-white px-2 py-1 rounded" onerror="this.style.display='none';">
+                    <p class="mb-6 leading-relaxed">Your go-to partner for premium quality signage, 3D acrylic letters, glow sign boards, and complete storefront branding in Greater Noida.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" aria-label="Facebook Profile" class="w-9 h-9 rounded-full bg-gray-800 flex items-center justify-center hover:bg-[#d86d28] hover:text-white transition-all transform hover:-translate-y-1"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram Profile" class="w-9 h-9 rounded-full bg-gray-800 flex items-center justify-center hover:bg-[#d86d28] hover:text-white transition-all transform hover:-translate-y-1"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Twitter Profile" class="w-9 h-9 rounded-full bg-gray-800 flex items-center justify-center hover:bg-[#d86d28] hover:text-white transition-all transform hover:-translate-y-1"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-bold text-[15px] mb-6 font-oswald tracking-wide">Quick Links</h4>
+                    <ul class="space-y-3">
+                        <li><a href="index.html" class="hover:text-[var(--accent-orange)] transition-colors"><i class="fas fa-chevron-right text-[10px] mr-2"></i> Home</a></li>
+                        <li><a href="services.html" class="hover:text-[var(--accent-orange)] transition-colors"><i class="fas fa-chevron-right text-[10px] mr-2"></i> Services</a></li>
+                        <li><a href="#" class="hover:text-[var(--accent-orange)] transition-colors"><i class="fas fa-chevron-right text-[10px] mr-2"></i> About Us</a></li>
+                        <li><a href="index.html#why-us" class="hover:text-[var(--accent-orange)] transition-colors"><i class="fas fa-chevron-right text-[10px] mr-2"></i> Why Choose Us</a></li>
+                        <li><a href="clients.html" class="hover:text-[var(--accent-orange)] transition-colors"><i class="fas fa-chevron-right text-[10px] mr-2"></i> Clients</a></li>
+                        <li><a href="contact.html" class="hover:text-[var(--accent-orange)] transition-colors"><i class="fas fa-chevron-right text-[10px] mr-2"></i> Contact</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-bold text-[15px] mb-6 font-oswald tracking-wide">Top Services</h4>
+                    <ul class="space-y-3">
+                        <li><a href="services.html" class="hover:text-[var(--accent-orange)] transition-colors"><i class="fas fa-chevron-right text-[10px] mr-2"></i> 3D Acrylic Letters</a></li>
+                        <li><a href="services.html" class="hover:text-[var(--accent-orange)] transition-colors"><i class="fas fa-chevron-right text-[10px] mr-2"></i> Glow Sign Boards</a></li>
+                        <li><a href="services.html" class="hover:text-[var(--accent-orange)] transition-colors"><i class="fas fa-chevron-right text-[10px] mr-2"></i> Vinyl Printing</a></li>
+                        <li><a href="services.html" class="hover:text-[var(--accent-orange)] transition-colors"><i class="fas fa-chevron-right text-[10px] mr-2"></i> Rollup Standees</a></li>
+                        <li><a href="services.html" class="hover:text-[var(--accent-orange)] transition-colors"><i class="fas fa-chevron-right text-[10px] mr-2"></i> 3D ACP Boards</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-bold text-[15px] mb-6 font-oswald tracking-wide">Contact Us</h4>
+                    <ul class="space-y-4">
+                        <li class="flex items-start space-x-3">
+                            <i class="fas fa-map-marker-alt text-[var(--accent-orange)] mt-1"></i>
+                            <span>Near Zepto Store, Barat Ghar Road, Tugalpur, Pari Chowk, Greater Noida</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <i class="fas fa-phone-alt text-[var(--accent-orange)]"></i>
+                            <a href="tel:6396430466" class="hover:text-white transition-colors">6396430466</a>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <i class="fas fa-envelope text-[var(--accent-orange)]"></i>
+                            <a href="mailto:graphicsign159@gmail.com" class="hover:text-white transition-colors">graphicsign159@gmail.com</a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="border-t border-gray-800 pt-6 flex flex-col md:flex-row justify-between items-center text-[12px]">
+                <p class="mb-4 md:mb-0">&copy; 2026 Graphic Sign. All rights reserved.</p>
+                <div class="space-x-4">
+                    <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+                    <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Working Sticky WhatsApp Icon -->
+    <a href="https://wa.me/916396430466" class="whatsapp-float" aria-label="Chat with us on WhatsApp" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- ================= GET QUOTATION MODAL ================= -->
+    <div id="quote-modal" class="hidden fixed inset-0 z-[1000] flex items-center justify-center p-4 bg-gray-900/80 backdrop-blur-sm opacity-0 transition-opacity duration-300 custom-scrollbar">
+        <div id="quote-modal-box" class="bg-white rounded-3xl shadow-2xl w-full max-w-lg max-h-[95vh] overflow-y-auto transform scale-95 transition-transform duration-300 relative">
+            
+            <button onclick="closeQuoteModal()" class="absolute top-5 right-5 w-8 h-8 flex items-center justify-center bg-gray-100 rounded-full text-gray-500 hover:text-[var(--accent-orange)] hover:bg-gray-200 transition focus:outline-none">
+                <i class="fas fa-times text-lg"></i>
+            </button>
+            
+            <div class="p-8 md:p-10">
+                <h3 class="text-orange-accent font-bold text-[12px] uppercase tracking-super-wide mb-2">FAST & RELIABLE</h3>
+                <h2 class="font-oswald text-3xl font-bold text-gray-900 mb-6">Request a Free Quote</h2>
+                
+                <form action="mailto:graphicsign159@gmail.com" method="POST" enctype="text/plain" class="space-y-4">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-[11px] font-bold uppercase tracking-wider text-gray-600 mb-1">Name <span class="text-red-500">*</span></label>
+                            <input type="text" name="Name" required class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:border-[var(--accent-orange)] text-[14px] shadow-inner">
+                        </div>
+                        <div>
+                            <label class="block text-[11px] font-bold uppercase tracking-wider text-gray-600 mb-1">Phone <span class="text-red-500">*</span></label>
+                            <input type="tel" name="Phone" required class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:border-[var(--accent-orange)] text-[14px] shadow-inner">
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-[11px] font-bold uppercase tracking-wider text-gray-600 mb-1">Email <span class="text-red-500">*</span></label>
+                        <input type="email" name="Email" required class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:border-[var(--accent-orange)] text-[14px] shadow-inner">
+                    </div>
+
+                    <div>
+                        <label class="block text-[11px] font-bold uppercase tracking-wider text-gray-600 mb-1">Interested Service</label>
+                        <div class="relative">
+                            <select name="Service" class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:border-[var(--accent-orange)] text-[14px] appearance-none shadow-inner cursor-pointer">
+                                <option value="3D Acrylic Letters">3D Acrylic Letters</option>
+                                <option value="Glow Sign Board">Glow Sign Board</option>
+                                <option value="Vinyl Printing">Vinyl Printing</option>
+                                <option value="ACP Board">ACP Board</option>
+                                <option value="Exhibition Stall">Exhibition Stall</option>
+                                <option value="Other">Other Custom Signage</option>
+                            </select>
+                            <div class="absolute inset-y-0 right-0 pr-4 flex items-center pointer-events-none">
+                                <i class="fas fa-chevron-down text-gray-400 text-sm"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-[11px] font-bold uppercase tracking-wider text-gray-600 mb-1">Message / Dimensions <span class="text-red-500">*</span></label>
+                        <textarea name="Message" rows="3" placeholder="Tell us about your project..." required class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:border-[var(--accent-orange)] text-[14px] resize-y shadow-inner"></textarea>
+                    </div>
+                    
+                    <button type="submit" class="w-full bg-[var(--bg-dark-edge)] hover:bg-[var(--accent-orange)] text-white py-4 rounded-xl font-bold text-[14px] tracking-wide transition-all transform hover:-translate-y-1 duration-300 mt-2 flex items-center justify-center space-x-2">
+                        <span>SEND REQUEST</span>
+                        <i class="fas fa-paper-plane ml-1"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript for Mobile Menu & Dynamic Modal -->
+    <script>
+        // --- Mobile Menu Toggle ---
+        const mobileBtn = document.getElementById('mobile-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // ================= QUOTATION MODAL LOGIC =================
+        const quoteModal = document.getElementById('quote-modal');
+        const quoteModalBox = document.getElementById('quote-modal-box');
+
+        function openQuoteModal() {
+            if(!quoteModal) return;
+            quoteModal.classList.remove('hidden');
+            setTimeout(() => {
+                quoteModal.classList.remove('opacity-0');
+                quoteModalBox.classList.remove('scale-95');
+                quoteModalBox.classList.add('scale-100');
+            }, 10);
+            document.body.style.overflow = 'hidden'; 
+        }
+
+        function closeQuoteModal() {
+            if(!quoteModal) return;
+            quoteModal.classList.add('opacity-0');
+            quoteModalBox.classList.remove('scale-100');
+            quoteModalBox.classList.add('scale-95');
+            
+            setTimeout(() => {
+                quoteModal.classList.add('hidden');
+                document.body.style.overflow = '';
+            }, 300);
+        }
+
+        if(quoteModal) {
+            quoteModal.addEventListener('click', function(e) {
+                if (e.target === quoteModal) {
+                    closeQuoteModal();
+                }
+            });
+        }
+    </script>
+</body>
+</html>

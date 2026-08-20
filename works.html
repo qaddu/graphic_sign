@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="logo.webp">
+
+    <!-- ================= PREMIUM SEO OPTIMIZATION ================= -->
+    <title>Our Works & Portfolio | Graphic Sign Greater Noida</title>
+    <meta name="description" content="View the portfolio and completed projects of Graphic Sign. We manufacture and install premium 3D acrylic letters, glow sign boards, and exhibition stalls in Greater Noida.">
+    <meta name="keywords" content="Graphic Sign Portfolio, Our Works, Acrylic Board Designs, Glow Sign Gallery, Best Sign Maker Pari Chowk, Corporate Signage NCR">
+    <meta name="author" content="Graphic Sign">
+    <meta name="robots" content="index, follow">
+    
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "CollectionPage",
+          "url": "https://yourwebsite.com/works.html",
+          "name": "Graphic Sign Portfolio",
+          "description": "Gallery of recent signage projects completed by Graphic Sign in Greater Noida."
+        },
+        {
+          "@type": "LocalBusiness",
+          "name": "Graphic Sign",
+          "image": "logo.png",
+          "telephone": "+916396430466",
+          "email": "graphicsign159@gmail.com",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Near Zepto Store, Barat Ghar Road, Tugalpur",
+            "addressLocality": "Pari Chowk, Greater Noida",
+            "addressRegion": "Uttar Pradesh",
+            "postalCode": "201310",
+            "addressCountry": "IN"
+          }
+        }
+      ]
+    }
+    </script>
+
+    <!-- Tailwind CSS & Font Icons -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Oswald:wght@600;700&display=swap" rel="stylesheet">
+    
+    <!-- PapaParse Library (The foolproof way to read Google Sheets) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+
+    <style>
+        :root {
+            --bg-dark-edge: #0b101a; 
+            --bg-glow-center: #1a2a47; 
+            --accent-orange: #d86d28; 
+            --light-bg: #f8f9fa;
+        }
+
+        body { font-family: 'Inter', sans-serif; background-color: var(--light-bg); color: #333333; margin: 0; overflow-x: hidden; }
+        .header-bg { background-color: var(--bg-dark-edge); border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .font-oswald { font-family: 'Oswald', sans-serif; }
+        .text-orange-accent { color: var(--accent-orange); }
+        .tracking-super-wide { letter-spacing: 0.2em; }
+
+        /* Filter Buttons */
+        .filter-btn { transition: all 0.3s ease; }
+        .filter-btn.active { background-color: var(--accent-orange); color: white; border-color: var(--accent-orange); }
+
+        /* CSS Masonry Grid */
+        .masonry-grid { column-count: 1; column-gap: 1.5rem; }
+        @media (min-width: 640px) { .masonry-grid { column-count: 2; } }
+        @media (min-width: 1024px) { .masonry-grid { column-count: 3; } }
+        
+        .masonry-item { break-inside: avoid; margin-bottom: 1.5rem; position: relative; border-radius: 12px; overflow: hidden; cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.05); animation: fadeIn 0.6s ease forwards; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .masonry-item img { width: 100%; display: block; transition: transform 0.6s ease; }
+        .masonry-item:hover img { transform: scale(1.08); }
+        .masonry-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(11,16,26,0.9) 0%, rgba(11,16,26,0.2) 100%); display: flex; flex-direction: column; justify-content: flex-end; padding: 1.5rem; opacity: 0; transition: all 0.3s ease; }
+        .masonry-item:hover .masonry-overlay { opacity: 1; }
+        
+        /* Lightbox */
+        #lightbox { display: none; position: fixed; z-index: 999; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(11, 16, 26, 0.95); justify-content: center; align-items: center; }
+        #lightbox img { max-width: 90%; max-height: 90%; border-radius: 8px; box-shadow: 0 10px 40px rgba(0,0,0,0.5); }
+        #lightbox-close { position: absolute; top: 30px; right: 40px; color: white; font-size: 40px; cursor: pointer; transition: color 0.2s; }
+        #lightbox-close:hover { color: var(--accent-orange); }
+
+        /* Floating WhatsApp CTA */
+        .whatsapp-float { position: fixed; bottom: 30px; right: 30px; background-color: #25d366; color: white; border-radius: 50%; width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; font-size: 35px; box-shadow: 0px 4px 15px rgba(0,0,0,0.3); z-index: 90; transition: transform 0.2s ease, box-shadow 0.2s ease; }
+        .whatsapp-float:hover { transform: scale(1.1); box-shadow: 0px 6px 20px rgba(37, 211, 102, 0.4); }
+
+        /* Custom Scrollbar */
+        .custom-scrollbar::-webkit-scrollbar { width: 6px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: #f1f1f1; border-radius: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+    </style>
+</head>
+<body>
+
+    <!-- ================= RESPONSIVE NAVBAR ================= -->
+    <header class="header-bg py-4 md:py-5 w-full z-50 sticky top-0 shadow-lg">
+        <div class="container mx-auto px-5 md:px-8 max-w-7xl flex justify-between items-center">
+            
+            <!-- Logo -->
+            <div class="w-auto lg:w-1/4">
+                <a href="index.html" class="inline-block">
+                    <img src="logo.webp" alt="Graphic Sign Greater Noida" class="h-8 md:h-10 object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <div style="display: none;" class="font-extrabold text-xl md:text-2xl tracking-tighter italic bg-white text-black px-2 py-1 rounded-sm">
+                        GRAPHIC <span class="text-orange-accent">SIGN</span>
+                    </div>
+                </a>
+            </div>
+            
+            <!-- Mobile Menu Button -->
+            <div class="lg:hidden flex items-center">
+                <button id="mobile-btn" aria-label="Open Mobile Menu" class="text-white text-2xl focus:outline-none hover:text-[var(--accent-orange)] transition">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+
+            <!-- Desktop Navbar Links ("Our Works" is highlighted) -->
+            <div class="hidden lg:flex w-2/4 justify-center">
+                <nav class="flex space-x-8 items-center text-[15px] font-semibold tracking-wider">
+                    <a href="index.html" class="text-white hover:text-gray-300 transition">Home</a>
+                    <a href="services.html" class="text-white hover:text-gray-300 transition">Services</a>
+                    <a href="about.html" class="text-white hover:text-gray-300 transition">About Us</a>
+                    <a href="#" class="text-[var(--accent-orange)] transition">Our Work</a>
+                    <a href="contact.html" class="text-white hover:text-gray-300 transition">Contact</a>
+                </nav>
+            </div>
+
+            <!-- Desktop Right CTA (Triggers Quote Modal) -->
+            <div class="hidden lg:flex w-1/4 justify-end items-center space-x-6">
+                <a href="tel:6396430466" class="flex items-center font-bold text-[14px] text-white whitespace-nowrap hover:text-[#d86d28] transition duration-300">
+                    <i class="fas fa-phone-alt text-orange-accent mr-2"></i> 6396430466
+                </a>
+                <a href="javascript:void(0)" onclick="openQuoteModal()" class="bg-[#d86d28] hover:bg-[#c45a1c] text-white px-6 py-2.5 rounded-[6px] font-bold text-[13px] tracking-wide transition-all transform hover:-translate-y-1 duration-300 whitespace-nowrap">
+                    GET QUOTATION
+                </a>
+            </div>
+        </div>
+
+        <!-- Mobile Dropdown Menu -->
+        <div id="mobile-menu" class="hidden absolute top-full left-0 w-full bg-[#0b101a] border-t border-gray-800 flex flex-col items-center py-6 space-y-5 lg:hidden shadow-2xl z-50">
+            <a href="index.html" class="text-white text-[16px] font-semibold tracking-wide hover:text-[var(--accent-orange)]">Home</a>
+            <a href="services.html" class="text-white text-[16px] font-semibold tracking-wide hover:text-[var(--accent-orange)]">Services</a>
+            <a href="about.html" class="text-white text-[16px] font-semibold tracking-wide hover:text-[var(--accent-orange)]">About Us</a>
+            <a href="#" class="text-[var(--accent-orange)] text-[16px] font-semibold tracking-wide">Our Works</a>
+            <a href="contact.html" class="text-white text-[16px] font-semibold tracking-wide hover:text-[var(--accent-orange)]">Contact</a>
+            <a href="tel:6396430466" class="text-white text-[16px] font-bold mt-2"><i class="fas fa-phone-alt text-[var(--accent-orange)] mr-2"></i> 6396430466</a>
+            <a href="javascript:void(0)" onclick="openQuoteModal(); document.getElementById('mobile-menu').classList.add('hidden');" class="bg-[#d86d28] text-white px-8 py-3 rounded-[6px] font-bold text-[14px] tracking-wide w-11/12 text-center mt-2">GET QUOTATION</a>
+        </div>
+    </header>
+
+    <!-- ================= PAGE HEADER ================= -->
+    <section class="bg-[var(--bg-dark-edge)] pt-16 pb-20 border-b border-gray-800 text-center relative overflow-hidden">
+        <div class="absolute inset-0 z-0 opacity-20">
+            <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-[radial-gradient(ellipse_at_center,_var(--bg-glow-center)_0%,_transparent_70%)]"></div>
+        </div>
+        <div class="container mx-auto px-5 relative z-10">
+            <h1 class="font-oswald text-5xl md:text-6xl font-bold text-white mb-4 tracking-tight">Our <span class="text-orange-accent">Work</span></h1>
+            <p class="text-gray-400 text-[16px] md:text-[18px] max-w-2xl mx-auto leading-relaxed">
+                Explore our dynamic gallery of recently completed signage projects. Built in-house, installed with precision.
+            </p>
+        </div>
+    </section>
+
+    <!-- ================= ANIMATED STATS SECTION ================= -->
+    <section class="py-16 bg-[#131c2d] relative border-b border-gray-800">
+        <div class="container mx-auto px-5 max-w-6xl">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div>
+                    <i class="fas fa-check-circle text-[var(--accent-orange)] text-4xl mb-4"></i>
+                    <h3 class="font-oswald text-4xl md:text-5xl font-bold text-white mb-2 stat-counter" data-target="850">0</h3>
+                    <p class="text-gray-400 text-[13px] uppercase tracking-wider font-bold">Projects Delivered</p>
+                </div>
+                <div>
+                    <i class="fas fa-building text-[var(--accent-orange)] text-4xl mb-4"></i>
+                    <h3 class="font-oswald text-4xl md:text-5xl font-bold text-white mb-2 stat-counter" data-target="150">0</h3>
+                    <p class="text-gray-400 text-[13px] uppercase tracking-wider font-bold">Business Partners</p>
+                </div>
+                <div>
+                    <i class="fas fa-tools text-[var(--accent-orange)] text-4xl mb-4"></i>
+                    <h3 class="font-oswald text-4xl md:text-5xl font-bold text-white mb-2"><span class="stat-counter" data-target="100">0</span>%</h3>
+                    <p class="text-gray-400 text-[13px] uppercase tracking-wider font-bold">In-House Production</p>
+                </div>
+                <div>
+                    <i class="fas fa-calendar-alt text-[var(--accent-orange)] text-4xl mb-4"></i>
+                    <h3 class="font-oswald text-4xl md:text-5xl font-bold text-white mb-2 stat-counter" data-target="10">0</h3>
+                    <p class="text-gray-400 text-[13px] uppercase tracking-wider font-bold">Years of Trust</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= DYNAMIC GOOGLE SHEETS GALLERY ================= -->
+    <section class="py-20 md:py-24 bg-gray-50 min-h-screen">
+        <div class="container mx-auto px-5 max-w-7xl text-center">
+            <div class="mb-12">
+                <h3 class="text-orange-accent font-bold text-[12px] uppercase tracking-super-wide mb-3">GALLERY</h3>
+                <h2 class="font-oswald text-4xl md:text-[50px] font-bold text-gray-900 mb-8 leading-tight">Explore Our Recent Work</h2>
+                
+                <!-- Category Filters -->
+                <div class="flex flex-wrap justify-center gap-3" id="gallery-filters">
+                    <button class="filter-btn active border border-gray-300 text-gray-700 px-6 py-2 rounded-full text-[13px] font-bold tracking-wide" data-filter="all">All Work</button>
+                    <button class="filter-btn border border-gray-300 text-gray-700 px-6 py-2 rounded-full text-[13px] font-bold tracking-wide hover:border-gray-400" data-filter="Acrylic">3D Acrylic</button>
+                    <button class="filter-btn border border-gray-300 text-gray-700 px-6 py-2 rounded-full text-[13px] font-bold tracking-wide hover:border-gray-400" data-filter="Glow Sign">Glow Signs</button>
+                    <button class="filter-btn border border-gray-300 text-gray-700 px-6 py-2 rounded-full text-[13px] font-bold tracking-wide hover:border-gray-400" data-filter="ACP">ACP Boards</button>
+                    <button class="filter-btn border border-gray-300 text-gray-700 px-6 py-2 rounded-full text-[13px] font-bold tracking-wide hover:border-gray-400" data-filter="Exhibition">Exhibitions</button>
+                </div>
+            </div>
+
+            <!-- Loader for Gallery -->
+            <div id="gallery-loader" class="flex justify-center items-center py-6">
+                <i class="fas fa-spinner fa-spin text-3xl text-[var(--accent-orange)]"></i>
+            </div>
+
+            <!-- The Masonry Grid -->
+            <div class="masonry-grid text-left hidden" id="gallery-container">
+            </div>
+
+            <!-- View More Button -->
+            <div class="mt-12 hidden" id="view-more-container">
+                <button id="view-more-btn" class="inline-block border-2 border-[var(--accent-orange)] text-[var(--accent-orange)] bg-transparent hover:bg-[var(--accent-orange)] hover:text-white px-10 py-3 rounded-[6px] font-bold text-[13px] tracking-widest transition-all duration-300 transform hover:-translate-y-1">
+                    VIEW MORE WORK
+                </button>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- Fullscreen Image Viewer Modal -->
+    <div id="lightbox" onclick="closeLightbox()">
+        <span id="lightbox-close">&times;</span>
+        <img id="lightbox-img" src="" alt="Fullscreen view">
+    </div>
+
+    <!-- ================= PREMIUM FOOTER ================= -->
+    <footer class="bg-[var(--bg-dark-edge)] pt-12 md:pt-16 pb-8 border-t border-gray-800 text-gray-400 text-[13px]">
+        <div class="container mx-auto px-5 max-w-7xl">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12 text-left">
+                
+                <div>
+                    <img src="logo.png" alt="Graphic Sign" class="h-10 mb-6 object-contain bg-white px-2 py-1 rounded" onerror="this.style.display='none';">
+                    <p class="mb-6 leading-relaxed">Your go-to partner for premium quality signage, 3D acrylic letters, glow sign boards, and complete storefront branding in Greater Noida.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-9 h-9 rounded-full bg-gray-800 flex items-center justify-center hover:bg-[#d86d28] hover:text-white transition-all transform hover:-translate-y-1"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="w-9 h-9 rounded-full bg-gray-800 flex items-center justify-center hover:bg-[#d86d28] hover:text-white transition-all transform hover:-translate-y-1"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="w-9 h-9 rounded-full bg-gray-800 flex items-center justify-center hover:bg-[#d86d28] hover:text-white transition-all transform hover:-translate-y-1"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-bold text-[15px] mb-6 font-oswald tracking-wide">Quick Links</h4>
+                    <ul class="space-y-3">
+                        <li><a href="index.html" class="hover:text-[var(--accent-orange)] transition-colors"><i class="fas fa-chevron-right text-[10px] mr-2"></i> Home</a></li>
+                        <li><a href="services.html" class="hover:text-[var(--accent-orange)] transition-colors"><i class="fas fa-chevron-right text-[10px] mr-2"></i> Services</a></li>
+                        <li><a href="about.html" class="hover:text-[var(--accent-orange)] transition-colors"><i class="fas fa-chevron-right text-[10px] mr-2"></i> About Us</a></li>
+                        <li><a href="#" class="hover:text-[var(--accent-orange)] transition-colors"><i class="fas fa-chevron-right text-[10px] mr-2"></i> Our Works</a></li>
+                        <li><a href="contact.html" class="hover:text-[var(--accent-orange)] transition-colors"><i class="fas fa-chevron-right text-[10px] mr-2"></i> Contact</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-bold text-[15px] mb-6 font-oswald tracking-wide">Top Services</h4>
+                    <ul class="space-y-3">
+                        <li><a href="services.html" class="hover:text-[var(--accent-orange)] transition-colors"><i class="fas fa-chevron-right text-[10px] mr-2"></i> 3D Acrylic Letters</a></li>
+                        <li><a href="services.html" class="hover:text-[var(--accent-orange)] transition-colors"><i class="fas fa-chevron-right text-[10px] mr-2"></i> Glow Sign Boards</a></li>
+                        <li><a href="services.html" class="hover:text-[var(--accent-orange)] transition-colors"><i class="fas fa-chevron-right text-[10px] mr-2"></i> Vinyl Printing</a></li>
+                        <li><a href="services.html" class="hover:text-[var(--accent-orange)] transition-colors"><i class="fas fa-chevron-right text-[10px] mr-2"></i> Rollup Standees</a></li>
+                        <li><a href="services.html" class="hover:text-[var(--accent-orange)] transition-colors"><i class="fas fa-chevron-right text-[10px] mr-2"></i> Exhibition Service</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-bold text-[15px] mb-6 font-oswald tracking-wide">Contact Us</h4>
+                    <ul class="space-y-4">
+                        <li class="flex items-start space-x-3">
+                            <i class="fas fa-map-marker-alt text-[var(--accent-orange)] mt-1"></i>
+                            <span>Near Zepto Store, Barat Ghar Road, Tugalpur, Pari Chowk, Greater Noida</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <i class="fas fa-phone-alt text-[var(--accent-orange)]"></i>
+                            <a href="tel:6396430466" class="hover:text-white transition-colors">6396430466</a>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <i class="fas fa-envelope text-[var(--accent-orange)]"></i>
+                            <a href="mailto:graphicsign159@gmail.com" class="hover:text-white transition-colors">graphicsign159@gmail.com</a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="border-t border-gray-800 pt-6 flex flex-col md:flex-row justify-between items-center text-[12px]">
+                <p class="mb-4 md:mb-0">&copy; 2026 Graphic Sign. All rights reserved.</p>
+                <div class="space-x-4">
+                    <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+                    <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Working Sticky WhatsApp Icon -->
+    <a href="https://wa.me/916396430466" class="whatsapp-float" aria-label="Chat with us on WhatsApp" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- ================= GET QUOTATION MODAL ================= -->
+    <div id="quote-modal" class="hidden fixed inset-0 z-[1000] flex items-center justify-center p-4 bg-gray-900/80 backdrop-blur-sm opacity-0 transition-opacity duration-300 custom-scrollbar">
+        <div id="quote-modal-box" class="bg-white rounded-3xl shadow-2xl w-full max-w-lg max-h-[95vh] overflow-y-auto transform scale-95 transition-transform duration-300 relative">
+            <button onclick="closeQuoteModal()" class="absolute top-5 right-5 w-8 h-8 flex items-center justify-center bg-gray-100 rounded-full text-gray-500 hover:text-[var(--accent-orange)] hover:bg-gray-200 transition focus:outline-none">
+                <i class="fas fa-times text-lg"></i>
+            </button>
+            <div class="p-8 md:p-10">
+                <h3 class="text-orange-accent font-bold text-[12px] uppercase tracking-super-wide mb-2">FAST & RELIABLE</h3>
+                <h2 class="font-oswald text-3xl font-bold text-gray-900 mb-6">Request a Free Quote</h2>
+                <form action="mailto:graphicsign159@gmail.com" method="POST" enctype="text/plain" class="space-y-4">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-[11px] font-bold uppercase tracking-wider text-gray-600 mb-1">Name <span class="text-red-500">*</span></label>
+                            <input type="text" name="Name" required class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:border-[var(--accent-orange)] text-[14px] shadow-inner">
+                        </div>
+                        <div>
+                            <label class="block text-[11px] font-bold uppercase tracking-wider text-gray-600 mb-1">Phone <span class="text-red-500">*</span></label>
+                            <input type="tel" name="Phone" required class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:border-[var(--accent-orange)] text-[14px] shadow-inner">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-[11px] font-bold uppercase tracking-wider text-gray-600 mb-1">Email <span class="text-red-500">*</span></label>
+                        <input type="email" name="Email" required class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:border-[var(--accent-orange)] text-[14px] shadow-inner">
+                    </div>
+                    <div>
+                        <label class="block text-[11px] font-bold uppercase tracking-wider text-gray-600 mb-1">Interested Service</label>
+                        <div class="relative">
+                            <select name="Service" class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:border-[var(--accent-orange)] text-[14px] appearance-none shadow-inner cursor-pointer">
+                                <option value="3D Acrylic Letters">3D Acrylic Letters</option>
+                                <option value="Glow Sign Board">Glow Sign Board</option>
+                                <option value="Vinyl Printing">Vinyl Printing</option>
+                                <option value="ACP Board">ACP Board</option>
+                                <option value="Exhibition Stall">Exhibition Stall</option>
+                                <option value="Other">Other Custom Signage</option>
+                            </select>
+                            <div class="absolute inset-y-0 right-0 pr-4 flex items-center pointer-events-none">
+                                <i class="fas fa-chevron-down text-gray-400 text-sm"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-[11px] font-bold uppercase tracking-wider text-gray-600 mb-1">Message / Dimensions <span class="text-red-500">*</span></label>
+                        <textarea name="Message" rows="3" placeholder="Tell us about your project..." required class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:border-[var(--accent-orange)] text-[14px] resize-y shadow-inner"></textarea>
+                    </div>
+                    <button type="submit" class="w-full bg-[var(--bg-dark-edge)] hover:bg-[var(--accent-orange)] text-white py-4 rounded-xl font-bold text-[14px] tracking-wide transition-all transform hover:-translate-y-1 duration-300 mt-2 flex items-center justify-center space-x-2">
+                        <span>SEND REQUEST</span>
+                        <i class="fas fa-paper-plane ml-1"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Base Logic -->
+    <script>
+        // --- Mobile Menu Toggle ---
+        const mobileBtn = document.getElementById('mobile-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileBtn.addEventListener('click', () => { mobileMenu.classList.toggle('hidden'); });
+        document.querySelectorAll('#mobile-menu a').forEach(link => { link.addEventListener('click', () => { mobileMenu.classList.add('hidden'); }); });
+
+        // --- Quotation Modal Logic ---
+        const quoteModal = document.getElementById('quote-modal');
+        const quoteModalBox = document.getElementById('quote-modal-box');
+        function openQuoteModal() {
+            if(!quoteModal) return;
+            quoteModal.classList.remove('hidden');
+            setTimeout(() => {
+                quoteModal.classList.remove('opacity-0');
+                quoteModalBox.classList.remove('scale-95');
+                quoteModalBox.classList.add('scale-100');
+            }, 10);
+            document.body.style.overflow = 'hidden'; 
+        }
+        function closeQuoteModal() {
+            if(!quoteModal) return;
+            quoteModal.classList.add('opacity-0');
+            quoteModalBox.classList.remove('scale-100');
+            quoteModalBox.classList.add('scale-95');
+            setTimeout(() => {
+                quoteModal.classList.add('hidden');
+                document.body.style.overflow = '';
+            }, 300);
+        }
+        if(quoteModal) { quoteModal.addEventListener('click', function(e) { if (e.target === quoteModal) closeQuoteModal(); }); }
+
+        // --- Lightbox Logic ---
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        function openLightbox(imageSrc) {
+            lightbox.style.display = 'flex';
+            lightboxImg.src = imageSrc;
+            lightboxImg.onerror = function() { this.src = 'https://via.placeholder.com/800x600?text=Image+Not+Found'; };
+        }
+        function closeLightbox() {
+            lightbox.style.display = 'none';
+            lightboxImg.src = '';
+        }
+        lightbox.addEventListener('click', function(e) { if (e.target !== lightboxImg) closeLightbox(); });
+
+        // --- Animated Stats Counter ---
+        const counters = document.querySelectorAll('.stat-counter');
+        const speed = 200; 
+        const animateCounters = (entries, observer) => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) {
+                    const counter = entry.target;
+                    const updateCount = () => {
+                        const target = +counter.getAttribute('data-target');
+                        const count = +counter.innerText;
+                        const inc = target / speed;
+                        if(count < target) {
+                            counter.innerText = Math.ceil(count + inc);
+                            setTimeout(updateCount, 15);
+                        } else {
+                            counter.innerText = target;
+                        }
+                    };
+                    updateCount();
+                    observer.unobserve(counter);
+                }
+            });
+        };
+        const counterObserver = new IntersectionObserver(animateCounters, { threshold: 0.5 });
+        counters.forEach(counter => { counterObserver.observe(counter); });
+
+        // ======================================================================
+        // GOOGLE SHEETS PARSING (Powered by PapaParse for 100% Reliability)
+        // ======================================================================
+        
+        // 1. YOUR NEW PUBLISHED CSV URL GOES HERE:
+        // Format expected: Column 1 = Image_URL, Column 2 = Category, Column 3 = Project_Name
+        // We add a cache-buster parameter at the end to force the browser to get the freshest data
+        const galleryCsvUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSr0FX7Xjfew_VSfw3doC8IKS2RzPhrCgNMI4S7oAYvOsS4v_osViXUOLCAwvB-juWlXsH7kjN1yPu0/pub?output=csv&t=' + new Date().getTime();
+
+        // 2. Fetch Gallery
+        let allGalleryData = [];
+        let filteredData = [];
+        let currentLoadCount = 0;
+        const itemsPerLoad = 6; 
+
+        if (galleryCsvUrl !== '') {
+            Papa.parse(galleryCsvUrl, {
+                download: true,
+                header: true,
+                skipEmptyLines: true,
+                transformHeader: function(header) {
+                    // MAGIC FIX: Scrub away hidden BOM characters and empty spaces added by Google Sheets
+                    return header.replace(/[\u200B-\u200D\uFEFF]/g, '').trim();
+                },
+                complete: function(results) {
+                    results.data.forEach(row => {
+                        // We use a fallback system just in case the headers are named slightly differently
+                        const keys = Object.keys(row);
+                        const imgKey = keys.find(k => k.toLowerCase().includes('image') || k.toLowerCase().includes('url')) || keys[0];
+                        const catKey = keys.find(k => k.toLowerCase().includes('category')) || keys[1];
+                        const nameKey = keys.find(k => k.toLowerCase().includes('name') || k.toLowerCase().includes('project')) || keys[2];
+
+                        let rawUrl = row[imgKey];
+                        let cat = row[catKey];
+                        let name = row[nameKey];
+
+                        if(rawUrl && rawUrl.trim() !== '') {
+                            allGalleryData.push({
+                                url: rawUrl.trim(),
+                                category: cat ? cat.trim() : 'Other',
+                                name: name ? name.trim() : 'Project'
+                            });
+                        }
+                    });
+
+                    filteredData = [...allGalleryData];
+                    document.getElementById('gallery-loader').classList.add('hidden');
+                    document.getElementById('gallery-container').classList.remove('hidden');
+                    renderGalleryItems();
+                },
+                error: function(error) {
+                    console.error("Error loading gallery data:", error);
+                    document.getElementById('gallery-loader').classList.add('hidden');
+                }
+            });
+        }
+
+        // Render Masonry Grid Items
+        function renderGalleryItems() {
+            const galleryContainer = document.getElementById('gallery-container');
+            const viewMoreBtnContainer = document.getElementById('view-more-container');
+            const batch = filteredData.slice(currentLoadCount, currentLoadCount + itemsPerLoad);
+            
+            batch.forEach(item => {
+                const html = `
+                    <div class="masonry-item" data-category="${item.category}" onclick="openLightbox('${item.url}')">
+                        <img src="${item.url}" alt="${item.name}" onerror="this.src='https://via.placeholder.com/600x600?text=Broken+Image+Link'">
+                        <div class="masonry-overlay">
+                            <span class="bg-[var(--accent-orange)] text-white text-[10px] font-bold px-3 py-1 rounded-sm w-max mb-2">${item.category}</span>
+                            <h4 class="text-white font-oswald text-xl tracking-wide">${item.name}</h4>
+                        </div>
+                    </div>
+                `;
+                galleryContainer.insertAdjacentHTML('beforeend', html);
+            });
+
+            currentLoadCount += batch.length;
+            if (currentLoadCount >= filteredData.length && filteredData.length > 0) {
+                viewMoreBtnContainer.classList.add('hidden');
+            } else if (filteredData.length > 0) {
+                viewMoreBtnContainer.classList.remove('hidden');
+            }
+        }
+
+        // Event Listeners for Gallery
+        document.getElementById('view-more-btn').addEventListener('click', renderGalleryItems);
+
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.filter-btn').forEach(b => {
+                    b.classList.remove('active', 'bg-[var(--accent-orange)]', 'text-white', 'border-[var(--accent-orange)]');
+                    b.classList.add('text-gray-700', 'border-gray-300');
+                });
+                btn.classList.add('active', 'bg-[var(--accent-orange)]', 'text-white', 'border-[var(--accent-orange)]');
+                btn.classList.remove('text-gray-700', 'border-gray-300');
+
+                const filterValue = btn.getAttribute('data-filter').toLowerCase();
+                
+                if(filterValue === 'all') {
+                    filteredData = [...allGalleryData];
+                } else {
+                    filteredData = allGalleryData.filter(item => {
+                        const cat = item.category.toLowerCase();
+                        if (filterValue === 'acrylic' && cat.includes('arclyic')) return true; // Typo fallback
+                        return cat.includes(filterValue);
+                    });
+                }
+
+                document.getElementById('gallery-container').innerHTML = '';
+                currentLoadCount = 0;
+                renderGalleryItems();
+            });
+        });
+    </script>
+</body>
+</html>

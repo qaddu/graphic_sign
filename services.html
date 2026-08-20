@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon" type="image/png" href="logo.webp">
+    
+    <!-- Premium SEO Optimization -->
+    <title>Our Services | Graphic Sign - Best Signage Boards in Greater Noida</title>
+    <meta name="description" content="Explore premium signage solutions at Graphic Sign in Greater Noida. We manufacture 3D Acrylic Letters, Glow Sign Boards, Vinyl Printing, ACP Boards, and Exhibition Stalls.">
+    <meta name="keywords" content="Signage Greater Noida, 3D Acrylic Letters, Glow Sign Boards, Vinyl Printing, Rollup Standee, Exhibition Stalls, Graphic Sign, Custom Boards Noida">
+    <meta name="author" content="Graphic Sign">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://yourwebsite.com/services.html">
+
+    <!-- JSON-LD Structured Data for Services -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "serviceType": "Signage Manufacturing and Storefront Branding",
+      "provider": {
+        "@type": "LocalBusiness",
+        "name": "Graphic Sign",
+        "image": "logo.png",
+        "telephone": "+916396430466",
+        "email": "graphicsign159@gmail.com",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Near Zepto Store, Barat Ghar Road, Tugalpur",
+          "addressLocality": "Pari Chowk, Greater Noida",
+          "addressRegion": "Uttar Pradesh",
+          "postalCode": "201310",
+          "addressCountry": "IN"
+        }
+      },
+      "areaServed": {
+        "@type": "City",
+        "name": "Greater Noida"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Signage Services",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "3D Acrylic Letters" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Glow Sign Boards" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Vinyl Printing & Plotter Cut" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "ACP Boards" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Exhibition Services" } }
+        ]
+      }
+    }
+    </script>
+
+    <!-- Tailwind CSS & Font Icons -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Oswald:wght@600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-dark-edge: #0b101a; 
+            --bg-glow-center: #1a2a47; 
+            --accent-orange: #d86d28; 
+            --light-bg: #f8f9fa;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--light-bg); 
+            color: #333333;
+            margin: 0;
+            overflow-x: hidden;
+        }
+
+        .header-bg {
+            background-color: var(--bg-dark-edge);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .font-oswald { font-family: 'Oswald', sans-serif; }
+        .text-orange-accent { color: var(--accent-orange); }
+        .tracking-super-wide { letter-spacing: 0.2em; }
+
+        /* Modern Service Card Enhancements */
+        .modern-service-card {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            cursor: pointer; 
+        }
+        
+        .modern-service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-orange), #f43f5e);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+            z-index: -1;
+        }
+
+        .modern-service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+            border-color: transparent;
+        }
+
+        .modern-service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .icon-wrapper {
+            transition: transform 0.4s ease;
+        }
+        .modern-service-card:hover .icon-wrapper {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        /* Modal Custom Styles */
+        .modal-overlay {
+            background-color: rgba(11, 16, 26, 0.85);
+            backdrop-filter: blur(5px);
+        }
+        .modal-content-area {
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+        .custom-scrollbar::-webkit-scrollbar { width: 6px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: #f1f1f1; border-radius: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: #a1a1aa; }
+
+        /* Process Step Cards */
+        .process-card {
+            position: relative;
+            z-index: 1;
+        }
+        .process-number {
+            position: absolute;
+            top: -20px;
+            right: 10px;
+            font-size: 100px;
+            font-family: 'Oswald', sans-serif;
+            font-weight: 700;
+            color: rgba(0,0,0,0.03);
+            z-index: -1;
+            line-height: 1;
+            transition: color 0.3s ease;
+        }
+        .process-card:hover .process-number {
+            color: rgba(216, 109, 40, 0.08);
+        }
+
+        /* Working WhatsApp CTA */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25d366;
+            color: white;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 35px;
+            box-shadow: 0px 4px 15px rgba(0,0,0,0.3);
+            z-index: 100;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .whatsapp-float:hover { 
+            transform: scale(1.1); 
+            box-shadow: 0px 6px 20px rgba(37, 211, 102, 0.4);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ================= RESPONSIVE NAVBAR ================= -->
+    <header class="header-bg py-4 md:py-5 w-full z-50 sticky top-0 shadow-lg">
+        <div class="container mx-auto px-5 md:px-8 max-w-7xl flex justify-between items-center">
+            
+            <!-- Logo -->
+            <div class="w-auto lg:w-1/4">
+                <a href="index.html" class="inline-block">
+                    <img src="logo.webp" alt="Graphic Sign Greater Noida" class="h-8 md:h-10 object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <div style="display: none;" class="font-extrabold text-xl md:text-2xl tracking-tighter italic bg-white text-black px-2 py-1 rounded-sm">
+                        GRAPHIC <span class="text-orange-accent">SIGN</span>
+                    </div>
+                </a>
+            </div>
+            
+            <!-- Mobile Menu Button -->
+            <div class="lg:hidden flex items-center">
+                <button id="mobile-btn" class="text-white text-2xl focus:outline-none hover:text-[var(--accent-orange)] transition">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+
+            <!-- Desktop Navbar Links -->
+            <div class="hidden lg:flex w-2/4 justify-center">
+                <nav class="flex space-x-8 items-center text-[15px] font-semibold tracking-wider">
+                    <a href="index.html" class="text-white hover:text-gray-300 transition">Home</a>
+                    <a href="#" class="text-[var(--accent-orange)] transition">Services</a>
+                    <a href="about.html" class="text-white hover:text-gray-300 transition">About Us</a>
+                    <a href="works.html" class="text-white hover:text-gray-300 transition">Our Work</a>
+                    <a href="contact.html" class="text-white hover:text-gray-300 transition">Contact</a>
+                </nav>
+            </div>
+
+            <!-- Desktop Right CTA (Opens Quotation Modal) -->
+            <div class="hidden lg:flex w-1/4 justify-end items-center space-x-6">
+                <a href="tel:6396430466" class="flex items-center font-bold text-[14px] text-white whitespace-nowrap hover:text-[#d86d28] transition duration-300">
+                    <i class="fas fa-phone-alt text-orange-accent mr-2"></i> 6396430466
+                </a>
+                <a href="javascript:void(0)" onclick="openQuoteModal()" class="bg-[#d86d28] hover:bg-[#c45a1c] text-white px-6 py-2.5 rounded-[6px] font-bold text-[13px] tracking-wide transition-all transform hover:-translate-y-1 duration-300 whitespace-nowrap">
+                    GET QUOTATION
+                </a>
+            </div>
+        </div>
+
+        <!-- Mobile Dropdown Menu -->
+        <div id="mobile-menu" class="hidden absolute top-full left-0 w-full bg-[#0b101a] border-t border-gray-800 flex flex-col items-center py-6 space-y-5 lg:hidden shadow-2xl z-50">
+            <a href="index.html" class="text-white text-[16px] font-semibold tracking-wide hover:text-[var(--accent-orange)]">Home</a>
+            <a href="#" class="text-[var(--accent-orange)] text-[16px] font-semibold tracking-wide">Services</a>
+            <a href="about.html" class="text-white text-[16px] font-semibold tracking-wide hover:text-[var(--accent-orange)]">About Us</a>
+            <a href="works.html" class="text-white text-[16px] font-semibold tracking-wide hover:text-[var(--accent-orange)]">Our Work</a>
+            <a href="contact.html" class="text-white text-[16px] font-semibold tracking-wide hover:text-[var(--accent-orange)]">Contact</a>
+            <a href="tel:6396430466" class="text-white text-[16px] font-bold mt-2"><i class="fas fa-phone-alt text-[var(--accent-orange)] mr-2"></i> 6396430466</a>
+            <a href="javascript:void(0)" onclick="openQuoteModal(); document.getElementById('mobile-menu').classList.add('hidden');" class="bg-[#d86d28] text-white px-8 py-3 rounded-[6px] font-bold text-[14px] tracking-wide w-11/12 text-center mt-2">GET QUOTATION</a>
+        </div>
+    </header>
+
+    <!-- ================= PAGE HEADER ================= -->
+    <section class="bg-[var(--bg-dark-edge)] pt-16 pb-20 border-b border-gray-800 text-center relative overflow-hidden">
+        <div class="absolute inset-0 z-0 opacity-20">
+            <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-[radial-gradient(ellipse_at_center,_var(--bg-glow-center)_0%,_transparent_70%)]"></div>
+        </div>
+        <div class="container mx-auto px-5 relative z-10">
+            <h1 class="font-oswald text-5xl md:text-6xl font-bold text-white mb-4 tracking-tight">Our Premium <span class="text-orange-accent">Services</span></h1>
+            <p class="text-gray-400 text-[16px] md:text-[18px] max-w-2xl mx-auto leading-relaxed">
+                Comprehensive, in-house manufacturing for all your branding and visibility needs across Greater Noida and Delhi NCR. Click any service to view details.
+            </p>
+        </div>
+    </section>
+
+    <!-- ================= THE 15 SERVICES SECTION ================= -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-5 max-w-7xl">
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                
+                <!-- Service 1 -->
+                <div class="modern-service-card bg-white p-8 rounded-xl shadow-sm border border-gray-200" 
+                     onclick="openServiceModal(this)"
+                     data-title="3D Acrylic Letters"
+                     data-desc="Raised, illuminated, or non-lit acrylic letters designed for a highly premium and modern storefront look. Perfect for malls, corporate offices, and luxury retail stores."
+                     data-features="Premium cast acrylic material, Waterproof & UV resistant, Custom color matching, LED backlit or frontlit options"
+                     data-img="acrylic_letter.webp">
+                    <div class="icon-wrapper w-14 h-14 bg-[#1a2332] rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-font text-white text-2xl"></i>
+                    </div>
+                    <h3 class="font-oswald text-[22px] font-bold text-gray-900 mb-3 tracking-wide">3D Acrylic Letters</h3>
+                    <p class="text-[14px] text-gray-600 leading-relaxed mb-6">Raised, illuminated, or non-lit acrylic letters designed for a highly premium and modern storefront look.</p>
+                    <span class="text-[var(--accent-orange)] font-bold text-[13px] tracking-wider">VIEW DETAILS <i class="fas fa-arrow-right ml-1 text-[10px]"></i></span>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="modern-service-card bg-white p-8 rounded-xl shadow-sm border border-gray-200"
+                     onclick="openServiceModal(this)"
+                     data-title="Acrylic Logo"
+                     data-desc="Laser-cut custom acrylic logos built precisely to your brand guidelines. We ensure exact color matching and shape precision to represent your business perfectly."
+                     data-features="High-precision laser cutting, Multi-layered 3D effect, Wall-mounted or stand-off installation, Ideal for reception areas"
+                     data-img="3d_acrylic_logo.webp">
+                    <div class="icon-wrapper w-14 h-14 bg-[#1a2332] rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-gem text-white text-2xl"></i>
+                    </div>
+                    <h3 class="font-oswald text-[22px] font-bold text-gray-900 mb-3 tracking-wide">Acrylic Logo</h3>
+                    <p class="text-[14px] text-gray-600 leading-relaxed mb-6">Laser-cut custom acrylic logos built precisely to your brand guidelines for reception areas and fascias.</p>
+                    <span class="text-[var(--accent-orange)] font-bold text-[13px] tracking-wider">VIEW DETAILS <i class="fas fa-arrow-right ml-1 text-[10px]"></i></span>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="modern-service-card bg-white p-8 rounded-xl shadow-sm border border-gray-200"
+                     onclick="openServiceModal(this)"
+                     data-title="Acrylic Plate"
+                     data-desc="Durable and sleek acrylic plates perfectly suited for office nameplates, directory signs, and menus. Available in clear, frosted, or solid colors."
+                     data-features="Sleek glass-like finish, Easy to clean and maintain, Stud-mounted for floating effect, Custom vinyl lettering applied"
+                     data-img="2d_acrylic_plate.webp">
+                    <div class="icon-wrapper w-14 h-14 bg-[#1a2332] rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-vector-square text-white text-2xl"></i>
+                    </div>
+                    <h3 class="font-oswald text-[22px] font-bold text-gray-900 mb-3 tracking-wide">Acrylic Plate</h3>
+                    <p class="text-[14px] text-gray-600 leading-relaxed mb-6">Durable and sleek acrylic plates perfectly suited for office nameplates, directory signs, and menus.</p>
+                    <span class="text-[var(--accent-orange)] font-bold text-[13px] tracking-wider">VIEW DETAILS <i class="fas fa-arrow-right ml-1 text-[10px]"></i></span>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="modern-service-card bg-white p-8 rounded-xl shadow-sm border border-gray-200"
+                     onclick="openServiceModal(this)"
+                     data-title="Vinyl Printing"
+                     data-desc="High-resolution, weather-resistant vinyl prints for large banners, wall wraps, and window graphics. We use premium eco-solvent inks for vibrant colors."
+                     data-features="Eco-solvent high-res printing, Matte or Gloss lamination, Indoor and outdoor durability, Custom sizes available"
+                     data-img="vinyl_print.webp">
+                    <div class="icon-wrapper w-14 h-14 bg-[#d86d28] rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-print text-white text-2xl"></i>
+                    </div>
+                    <h3 class="font-oswald text-[22px] font-bold text-gray-900 mb-3 tracking-wide">Vinyl Printing</h3>
+                    <p class="text-[14px] text-gray-600 leading-relaxed mb-6">High-resolution, weather-resistant vinyl prints for large banners, wall wraps, and window graphics.</p>
+                    <span class="text-[var(--accent-orange)] font-bold text-[13px] tracking-wider">VIEW DETAILS <i class="fas fa-arrow-right ml-1 text-[10px]"></i></span>
+                </div>
+
+                <!-- Service 5 -->
+                <div class="modern-service-card bg-white p-8 rounded-xl shadow-sm border border-gray-200"
+                     onclick="openServiceModal(this)"
+                     data-title="Vinyl Plotter Cut"
+                     data-desc="Precision plotter-cut vinyl lettering and custom shapes ideal for glass doors, office hours displays, and vehicle branding."
+                     data-features="Sharp, precise edges, Huge variety of solid colors, Easy application and removal, Perfect for glass and flat surfaces"
+                     data-img="vinyl_image.webp">
+                    <div class="icon-wrapper w-14 h-14 bg-[#d86d28] rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-cut text-white text-2xl"></i>
+                    </div>
+                    <h3 class="font-oswald text-[22px] font-bold text-gray-900 mb-3 tracking-wide">Vinyl Plotter Cutt</h3>
+                    <p class="text-[14px] text-gray-600 leading-relaxed mb-6">Precision plotter-cut vinyl lettering and custom shapes ideal for glass doors and vehicle branding.</p>
+                    <span class="text-[var(--accent-orange)] font-bold text-[13px] tracking-wider">VIEW DETAILS <i class="fas fa-arrow-right ml-1 text-[10px]"></i></span>
+                </div>
+
+                <!-- Service 6 -->
+                <div class="modern-service-card bg-white p-8 rounded-xl shadow-sm border border-gray-200"
+                     onclick="openServiceModal(this)"
+                     data-title="Vinyl Sunboard"
+                     data-desc="Lightweight, rigid sunboard printing that provides a clean finish for indoor and short-term event displays, exhibition panels, and standees."
+                     data-features="3mm and 5mm thickness options, Extremely lightweight, Vibrant print quality, Cost-effective for campaigns"
+                     data-img="sunboard_vinyl.webp">
+                    <div class="icon-wrapper w-14 h-14 bg-[#d86d28] rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-columns text-white text-2xl"></i>
+                    </div>
+                    <h3 class="font-oswald text-[22px] font-bold text-gray-900 mb-3 tracking-wide">Vinyl Sunboard</h3>
+                    <p class="text-[14px] text-gray-600 leading-relaxed mb-6">Lightweight, rigid sunboard printing that provides a clean finish for indoor and short-term event displays.</p>
+                    <span class="text-[var(--accent-orange)] font-bold text-[13px] tracking-wider">VIEW DETAILS <i class="fas fa-arrow-right ml-1 text-[10px]"></i></span>
+                </div>
+
+                <!-- Service 7 -->
+                <div class="modern-service-card bg-white p-8 rounded-xl shadow-sm border border-gray-200"
+                     onclick="openServiceModal(this)"
+                     data-title="3D ACP Board"
+                     data-desc="Aluminum Composite Panel (ACP) boards featuring raised letters to give your signage deep dimension and highly durable structural integrity."
+                     data-features="Weatherproof exterior, CNC routed precision, Seamless finish, Integrated LED lighting"
+                     data-img="3d_acp_board.webp">
+                    <div class="icon-wrapper w-14 h-14 bg-[#525f75] rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-cube text-white text-2xl"></i>
+                    </div>
+                    <h3 class="font-oswald text-[22px] font-bold text-gray-900 mb-3 tracking-wide">3D ACP Board</h3>
+                    <p class="text-[14px] text-gray-600 leading-relaxed mb-6">Aluminum Composite Panel (ACP) boards featuring raised letters to give your signage deep dimension.</p>
+                    <span class="text-[var(--accent-orange)] font-bold text-[13px] tracking-wider">VIEW DETAILS <i class="fas fa-arrow-right ml-1 text-[10px]"></i></span>
+                </div>
+
+                <!-- Service 8 -->
+                <div class="modern-service-card bg-white p-8 rounded-xl shadow-sm border border-gray-200"
+                     onclick="openServiceModal(this)"
+                     data-title="2D ACP Board"
+                     data-desc="Flat, weatherproof ACP boards printed directly or vinyl-wrapped for lightweight, long-lasting exterior use."
+                     data-features="Highly durable substrate, Rust and corrosion resistant, Excellent for large hoardings, Cost-efficient exterior solution"
+                     data-img="2d_acp_board.webp">
+                    <div class="icon-wrapper w-14 h-14 bg-[#525f75] rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-square text-white text-2xl"></i>
+                    </div>
+                    <h3 class="font-oswald text-[22px] font-bold text-gray-900 mb-3 tracking-wide">2D ACP Board</h3>
+                    <p class="text-[14px] text-gray-600 leading-relaxed mb-6">Flat, weatherproof ACP boards printed directly or vinyl-wrapped for lightweight, long-lasting exterior use.</p>
+                    <span class="text-[var(--accent-orange)] font-bold text-[13px] tracking-wider">VIEW DETAILS <i class="fas fa-arrow-right ml-1 text-[10px]"></i></span>
+                </div>
+
+                <!-- Service 9 -->
+                <div class="modern-service-card bg-white p-8 rounded-xl shadow-sm border border-gray-200"
+                     onclick="openServiceModal(this)"
+                     data-title="Glow Sign Board"
+                     data-desc="Vibrant, backlit glow sign boards that guarantee round-the-clock visibility for retail stores, restaurants, and clinics."
+                     data-features="High-intensity LED modules, Energy efficient lighting, Flex or acrylic faces, Even light distribution"
+                     data-img="glow_board.webp">
+                    <div class="icon-wrapper w-14 h-14 bg-[#525f75] rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-lightbulb text-white text-2xl"></i>
+                    </div>
+                    <h3 class="font-oswald text-[22px] font-bold text-gray-900 mb-3 tracking-wide">Glow Sign Board</h3>
+                    <p class="text-[14px] text-gray-600 leading-relaxed mb-6">Vibrant, backlit glow sign boards that guarantee round-the-clock visibility for retail stores and clinics.</p>
+                    <span class="text-[var(--accent-orange)] font-bold text-[13px] tracking-wider">VIEW DETAILS <i class="fas fa-arrow-right ml-1 text-[10px]"></i></span>
+                </div>
+
+                <!-- Service 10 -->
+                <div class="modern-service-card bg-white p-8 rounded-xl shadow-sm border border-gray-200"
+                     onclick="openServiceModal(this)"
+                     data-title="S.S Name Plate"
+                     data-desc="Premium etched or laser-cut Stainless Steel (S.S) nameplates for corporate offices, homes, and high-end institutions."
+                     data-features="304/316 grade stainless steel, Rust-proof and tarnish resistant, Etched and color-filled text, Mirror or brushed finish"
+                     data-img="ss_name_plate.webp">
+                    <div class="icon-wrapper w-14 h-14 bg-[#525f75] rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-id-badge text-white text-2xl"></i>
+                    </div>
+                    <h3 class="font-oswald text-[22px] font-bold text-gray-900 mb-3 tracking-wide">S.S Name Plate</h3>
+                    <p class="text-[14px] text-gray-600 leading-relaxed mb-6">Premium etched or laser-cut Stainless Steel (S.S) nameplates for corporate offices and institutions.</p>
+                    <span class="text-[var(--accent-orange)] font-bold text-[13px] tracking-wider">VIEW DETAILS <i class="fas fa-arrow-right ml-1 text-[10px]"></i></span>
+                </div>
+
+                <!-- Service 11 -->
+                <div class="modern-service-card bg-white p-8 rounded-xl shadow-sm border border-gray-200"
+                     onclick="openServiceModal(this)"
+                     data-title="Lollipop Board"
+                     data-desc="Double-sided, backlit pole/lollipop boards perfect for directional advertising and catching attention from passing traffic."
+                     data-features="Double-sided visibility, Flange mounted design, Built-in LED lighting, Excellent for roadside placement"
+                     data-img="lollipop.webp">
+                    <div class="icon-wrapper w-14 h-14 bg-[#525f75] rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-map-signs text-white text-2xl"></i>
+                    </div>
+                    <h3 class="font-oswald text-[22px] font-bold text-gray-900 mb-3 tracking-wide">Lollipop Board</h3>
+                    <p class="text-[14px] text-gray-600 leading-relaxed mb-6">Double-sided, backlit pole/lollipop boards perfect for directional advertising and roadside visibility.</p>
+                    <span class="text-[var(--accent-orange)] font-bold text-[13px] tracking-wider">VIEW DETAILS <i class="fas fa-arrow-right ml-1 text-[10px]"></i></span>
+                </div>
+
+                <!-- Service 12 -->
+                <div class="modern-service-card bg-white p-8 rounded-xl shadow-sm border border-gray-200"
+                     onclick="openServiceModal(this)"
+                     data-title="Blackout Board"
+                     data-desc="Opaque blackout flex boards ideal for privacy panels, specialized lighting control, and ensuring no light leaks from the back."
+                     data-features="100% light-blocking material, High-resolution print face, Excellent for hoarding wraps, Prevents structure shadowing"
+                     data-img="clip_on.webp">
+                    <div class="icon-wrapper w-14 h-14 bg-[#525f75] rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-adjust text-white text-2xl"></i>
+                    </div>
+                    <h3 class="font-oswald text-[22px] font-bold text-gray-900 mb-3 tracking-wide">Blackout Board</h3>
+                    <p class="text-[14px] text-gray-600 leading-relaxed mb-6">Opaque blackout flex boards ideal for privacy panels, specialized lighting control, and clean backing.</p>
+                    <span class="text-[var(--accent-orange)] font-bold text-[13px] tracking-wider">VIEW DETAILS <i class="fas fa-arrow-right ml-1 text-[10px]"></i></span>
+                </div>
+
+                <!-- Service 13 -->
+                <div class="modern-service-card bg-white p-8 rounded-xl shadow-sm border border-gray-200"
+                     onclick="openServiceModal(this)"
+                     data-title="Rollup Standee"
+                     data-desc="Highly portable, easy-to-install rollup standees printed on durable, non-tear media for exhibitions, conferences, and retail promotions."
+                     data-features="Aluminum retracting base, Non-tear flex/vinyl media, Includes carrying case, Sets up in 30 seconds"
+                     data-img="roll_up.webp">
+                    <div class="icon-wrapper w-14 h-14 bg-[#1a2332] rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-arrows-alt-v text-white text-2xl"></i>
+                    </div>
+                    <h3 class="font-oswald text-[22px] font-bold text-gray-900 mb-3 tracking-wide">Rollup Standee</h3>
+                    <p class="text-[14px] text-gray-600 leading-relaxed mb-6">Portable, high-quality rollup standees for exhibitions and events.</p>
+                    <span class="text-[var(--accent-orange)] font-bold text-[13px] tracking-wider">VIEW DETAILS <i class="fas fa-arrow-right ml-1 text-[10px]"></i></span>
+                </div>
+
+                <!-- Service 14 -->
+                <div class="modern-service-card bg-white p-8 rounded-xl shadow-sm border border-gray-200"
+                     onclick="openServiceModal(this)"
+                     data-title="Civil Work"
+                     data-desc="We don't just print; we build. Complete civil structure, iron framing, and fabrication services ensuring your massive hoardings are safely installed."
+                     data-features="Heavy-duty iron framing, On-site welding and assembly, Structural safety compliance, Foundation and mounting"
+                     data-img="civil_work.webp">
+                    <div class="icon-wrapper w-14 h-14 bg-[#d86d28] rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-hard-hat text-white text-2xl"></i>
+                    </div>
+                    <h3 class="font-oswald text-[22px] font-bold text-gray-900 mb-3 tracking-wide">Civil Work</h3>
+                    <p class="text-[14px] text-gray-600 leading-relaxed mb-6">Complete civil work and structural fabrication for secure signage installation.</p>
+                    <span class="text-[var(--accent-orange)] font-bold text-[13px] tracking-wider">VIEW DETAILS <i class="fas fa-arrow-right ml-1 text-[10px]"></i></span>
+                </div>
+
+                <!-- Service 15 (Exhibition Service) -->
+                <div class="modern-service-card bg-white p-8 rounded-xl shadow-sm border border-gray-200"
+                     onclick="openServiceModal(this)"
+                     data-title="Exhibition Service"
+                     data-desc="Custom-designed exhibition stalls and display setups tailored for high-impact event branding. We handle everything from backdrop printing to complete stall fabrication."
+                     data-features="Custom stall fabrication, Backdrop and podium printing, Lighting & electrical setup, Complete event branding"
+                     data-img="exhibition.webp">
+                    <div class="icon-wrapper w-14 h-14 bg-[#1a2332] rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-store text-white text-2xl"></i>
+                    </div>
+                    <h3 class="font-oswald text-[22px] font-bold text-gray-900 mb-3 tracking-wide">Exhibition Service</h3>
+                    <p class="text-[14px] text-gray-600 leading-relaxed mb-6">Custom-designed exhibition stalls and display setups tailored for high-impact event branding.</p>
+                    <span class="text-[var(--accent-orange)] font-bold text-[13px] tracking-wider">VIEW DETAILS <i class="fas fa-arrow-right ml-1 text-[10px]"></i></span>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= DYNAMIC SERVICE MODAL (POP-UP) ================= -->
+    <div id="service-modal" class="hidden fixed inset-0 z-[999] modal-overlay flex items-center justify-center p-4 sm:p-6 opacity-0 transition-opacity duration-300 custom-scrollbar">
+        <div class="bg-white rounded-2xl shadow-2xl w-full max-w-5xl overflow-hidden flex flex-col md:flex-row transform scale-95 transition-transform duration-300" id="modal-box">
+            
+            <button onclick="closeServiceModal()" aria-label="Close modal" class="md:hidden absolute top-4 right-4 z-50 w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-md text-gray-800 hover:text-[var(--accent-orange)] focus:outline-none">
+                <i class="fas fa-times text-xl"></i>
+            </button>
+
+            <div class="w-full md:w-1/2 h-64 md:h-auto bg-gray-100 relative">
+                <img id="modal-img" src="" alt="Service Image" class="absolute inset-0 w-full h-full object-cover">
+            </div>
+
+            <div class="w-full md:w-1/2 p-8 md:p-12 modal-content-area relative">
+                <button onclick="closeServiceModal()" aria-label="Close modal" class="hidden md:flex absolute top-6 right-6 w-10 h-10 bg-gray-100 rounded-full items-center justify-center hover:bg-gray-200 text-gray-600 hover:text-[var(--accent-orange)] transition focus:outline-none">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+
+                <h4 class="text-[var(--accent-orange)] font-bold text-[12px] uppercase tracking-widest mb-2">SERVICE DETAILS</h4>
+                <h2 id="modal-title" class="font-oswald text-3xl md:text-4xl font-bold text-gray-900 mb-4">Service Title</h2>
+                <p id="modal-desc" class="text-gray-600 text-[15px] leading-relaxed mb-6">Service description goes here.</p>
+                
+                <h4 class="font-bold text-gray-900 mb-3 text-[16px]">Key Features & Materials:</h4>
+                <ul id="modal-features" class="mb-8 space-y-2">
+                    <!-- Features injected here via JS -->
+                </ul>
+
+                <a id="modal-wa-btn" href="#" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center w-full bg-[#25d366] hover:bg-[#1ebd5a] text-white px-8 py-3.5 rounded-[6px] font-bold text-[14px] tracking-wide transition-all shadow-lg transform hover:-translate-y-1">
+                    <i class="fab fa-whatsapp text-xl mr-2"></i> GET QUOTE ON WHATSAPP
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= TRUST & PROCESS SECTION ================= -->
+    <section class="py-24 bg-white relative overflow-hidden border-t border-gray-200">
+        <div class="container mx-auto px-5 text-center max-w-7xl relative z-10">
+            <h3 class="text-orange-accent font-bold text-[12px] uppercase tracking-super-wide mb-3">HOW WE WORK</h3>
+            <h2 class="font-oswald text-4xl md:text-[50px] font-bold text-gray-900 mb-16 leading-tight">Our Proven 4-Step Process</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-left">
+                <!-- Step 1 -->
+                <div class="process-card bg-gray-50 p-8 rounded-2xl border border-gray-100">
+                    <span class="process-number">01</span>
+                    <div class="w-12 h-12 bg-white border border-gray-200 rounded-full flex items-center justify-center mb-6 shadow-sm">
+                        <i class="fas fa-comments text-[var(--accent-orange)] text-lg"></i>
+                    </div>
+                    <h4 class="font-bold text-xl text-gray-900 mb-3 font-oswald tracking-wide">Consultation & Quote</h4>
+                    <p class="text-[14px] text-gray-500 leading-relaxed">We visit your site, understand your vision, take precise measurements, and provide a transparent quotation.</p>
+                </div>
+                <!-- Step 2 -->
+                <div class="process-card bg-gray-50 p-8 rounded-2xl border border-gray-100">
+                    <span class="process-number">02</span>
+                    <div class="w-12 h-12 bg-white border border-gray-200 rounded-full flex items-center justify-center mb-6 shadow-sm">
+                        <i class="fas fa-laptop-code text-[var(--accent-orange)] text-lg"></i>
+                    </div>
+                    <h4 class="font-bold text-xl text-gray-900 mb-3 font-oswald tracking-wide">Custom Design</h4>
+                    <p class="text-[14px] text-gray-500 leading-relaxed">Our design team creates a precise digital mockup allowing you to visualize the board before production begins.</p>
+                </div>
+                <!-- Step 3 -->
+                <div class="process-card bg-gray-50 p-8 rounded-2xl border border-gray-100">
+                    <span class="process-number">03</span>
+                    <div class="w-12 h-12 bg-white border border-gray-200 rounded-full flex items-center justify-center mb-6 shadow-sm">
+                        <i class="fas fa-industry text-[var(--accent-orange)] text-lg"></i>
+                    </div>
+                    <h4 class="font-bold text-xl text-gray-900 mb-3 font-oswald tracking-wide">In-House Fabrication</h4>
+                    <p class="text-[14px] text-gray-500 leading-relaxed">We utilize top-tier acrylics, LED modules, and vinyl in our local facility to ensure absolute quality control.</p>
+                </div>
+                <!-- Step 4 -->
+                <div class="process-card bg-gray-50 p-8 rounded-2xl border border-gray-100">
+                    <span class="process-number">04</span>
+                    <div class="w-12 h-12 bg-white border border-gray-200 rounded-full flex items-center justify-center mb-6 shadow-sm">
+                        <i class="fas fa-check-circle text-[var(--accent-orange)] text-lg"></i>
+                    </div>
+                    <h4 class="font-bold text-xl text-gray-900 mb-3 font-oswald tracking-wide">Safe Installation</h4>
+                    <p class="text-[14px] text-gray-500 leading-relaxed">Our experienced mounting team ensures your new signage is securely and safely installed at your location.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= FAQ SECTION ================= -->
+    <section class="py-24 bg-gray-50 border-t border-gray-200">
+        <div class="container mx-auto px-5 max-w-4xl">
+            <div class="text-center mb-12">
+                <h3 class="text-orange-accent font-bold text-[12px] uppercase tracking-super-wide mb-3">GOT QUESTIONS?</h3>
+                <h2 class="font-oswald text-4xl md:text-[50px] font-bold text-gray-900 mb-5 leading-tight">Frequently Asked Questions</h2>
+            </div>
+            
+            <div class="space-y-4">
+                <div class="bg-white border border-gray-200 rounded-xl overflow-hidden transition-all duration-300 shadow-sm hover:shadow-md">
+                    <button class="faq-btn w-full px-6 py-5 flex justify-between items-center focus:outline-none bg-white">
+                        <span class="font-bold text-gray-900 text-[16px] text-left">How long does it take to manufacture and install a sign board?</span>
+                        <i class="fas fa-chevron-down text-[var(--accent-orange)] transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-6 pt-0">
+                        <p class="text-gray-600 text-[15px] leading-relaxed">Standard sign boards usually take 3 to 7 business days from design approval to final installation, depending on the complexity, size, and materials used.</p>
+                    </div>
+                </div>
+                
+                <div class="bg-white border border-gray-200 rounded-xl overflow-hidden transition-all duration-300 shadow-sm hover:shadow-md">
+                    <button class="faq-btn w-full px-6 py-5 flex justify-between items-center focus:outline-none bg-white">
+                        <span class="font-bold text-gray-900 text-[16px] text-left">Do you provide custom sizes and designs?</span>
+                        <i class="fas fa-chevron-down text-[var(--accent-orange)] transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-6 pt-0">
+                        <p class="text-gray-600 text-[15px] leading-relaxed">Yes, absolutely! Every signage we create is custom-built to order. We tailor the dimensions, colors, and materials to perfectly match your brand and storefront requirements.</p>
+                    </div>
+                </div>
+
+                <div class="bg-white border border-gray-200 rounded-xl overflow-hidden transition-all duration-300 shadow-sm hover:shadow-md">
+                    <button class="faq-btn w-full px-6 py-5 flex justify-between items-center focus:outline-none bg-white">
+                        <span class="font-bold text-gray-900 text-[16px] text-left">Do you offer warranty or maintenance services?</span>
+                        <i class="fas fa-chevron-down text-[var(--accent-orange)] transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-6 pt-0">
+                        <p class="text-gray-600 text-[15px] leading-relaxed">Yes, we use high-quality materials and provide a standard warranty on our LED modules and ACP boards. We also offer maintenance and repair services to keep your sign looking brand new.</p>
+                    </div>
+                </div>
+
+                <div class="bg-white border border-gray-200 rounded-xl overflow-hidden transition-all duration-300 shadow-sm hover:shadow-md">
+                    <button class="faq-btn w-full px-6 py-5 flex justify-between items-center focus:outline-none bg-white">
+                        <span class="font-bold text-gray-900 text-[16px] text-left">Will you handle the installation at our location?</span>
+                        <i class="fas fa-chevron-down text-[var(--accent-orange)] transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-6 pt-0">
+                        <p class="text-gray-600 text-[15px] leading-relaxed">Yes, we provide end-to-end services. Our expert fabrication and mounting team will safely install the signage at your location in Greater Noida or Delhi NCR.</p>
+                    </div>
+                </div>
+
+                <div class="bg-white border border-gray-200 rounded-xl overflow-hidden transition-all duration-300 shadow-sm hover:shadow-md">
+                    <button class="faq-btn w-full px-6 py-5 flex justify-between items-center focus:outline-none bg-white">
+                        <span class="font-bold text-gray-900 text-[16px] text-left">Which type of sign board is best for outdoor use?</span>
+                        <i class="fas fa-chevron-down text-[var(--accent-orange)] transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-6 pt-0">
+                        <p class="text-gray-600 text-[15px] leading-relaxed">For outdoor durability, we highly recommend 3D ACP Boards or Glow Sign Boards with waterproof LED modules. These materials withstand harsh weather conditions while maintaining vibrant visibility.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= CTA BANNER ================= -->
+    <section class="py-16 bg-[var(--bg-dark-edge)] border-t border-gray-800 text-center">
+        <div class="container mx-auto px-5">
+            <h2 class="font-oswald text-3xl md:text-4xl font-bold text-white mb-6 tracking-wide">Ready to Upgrade Your Storefront?</h2>
+            <p class="text-gray-400 mb-8 max-w-xl mx-auto">Get in touch with Graphic Sign today for a free consultation and estimate on any of our services.</p>
+            <a href="javascript:void(0)" onclick="openQuoteModal()" class="inline-block bg-[var(--accent-orange)] hover:bg-[#c45a1c] text-white px-10 py-3.5 rounded-[6px] font-bold text-[14px] tracking-wide transition-all transform hover:-translate-y-1 duration-300 shadow-lg">
+                REQUEST A FREE QUOTE
+            </a>
+        </div>
+    </section>
+
+    
+
+    <!-- ================= PREMIUM FOOTER ================= -->
+    <footer class="bg-[var(--bg-dark-edge)] pt-12 md:pt-16 pb-8 border-t border-gray-800 text-gray-400 text-[13px]">
+        <div class="container mx-auto px-5 max-w-7xl">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12 text-left">
+                
+                <div>
+                    <img src="logo.png" alt="Graphic Sign" class="h-10 mb-6 object-contain bg-white px-2 py-1 rounded" onerror="this.style.display='none';">
+                    <p class="mb-6 leading-relaxed">Your go-to partner for premium quality signage, 3D acrylic letters, glow sign boards, and complete storefront branding in Greater Noida.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" aria-label="Facebook Profile" class="w-9 h-9 rounded-full bg-gray-800 flex items-center justify-center hover:bg-[#d86d28] hover:text-white transition-all transform hover:-translate-y-1"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram Profile" class="w-9 h-9 rounded-full bg-gray-800 flex items-center justify-center hover:bg-[#d86d28] hover:text-white transition-all transform hover:-translate-y-1"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Twitter Profile" class="w-9 h-9 rounded-full bg-gray-800 flex items-center justify-center hover:bg-[#d86d28] hover:text-white transition-all transform hover:-translate-y-1"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-bold text-[15px] mb-6 font-oswald tracking-wide">Quick Links</h4>
+                    <ul class="space-y-3">
+                        <li><a href="index.html" class="hover:text-[var(--accent-orange)] transition-colors"><i class="fas fa-chevron-right text-[10px] mr-2"></i> Home</a></li>
+                        <li><a href="services.html" class="hover:text-[var(--accent-orange)] transition-colors"><i class="fas fa-chevron-right text-[10px] mr-2"></i> Services</a></li>
+                        <li><a href="about.html" class="hover:text-[var(--accent-orange)] transition-colors"><i class="fas fa-chevron-right text-[10px] mr-2"></i> About Us</a></li>
+                        <li><a href="index.html#why-us" class="hover:text-[var(--accent-orange)] transition-colors"><i class="fas fa-chevron-right text-[10px] mr-2"></i> Why Choose Us</a></li>
+                        <li><a href="clients.html" class="hover:text-[var(--accent-orange)] transition-colors"><i class="fas fa-chevron-right text-[10px] mr-2"></i> Clients</a></li>
+                        <li><a href="contact.html" class="hover:text-[var(--accent-orange)] transition-colors"><i class="fas fa-chevron-right text-[10px] mr-2"></i> Contact</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-bold text-[15px] mb-6 font-oswald tracking-wide">Top Services</h4>
+                    <ul class="space-y-3">
+                        <li><a href="services.html" class="hover:text-[var(--accent-orange)] transition-colors"><i class="fas fa-chevron-right text-[10px] mr-2"></i> 3D Acrylic Letters</a></li>
+                        <li><a href="services.html" class="hover:text-[var(--accent-orange)] transition-colors"><i class="fas fa-chevron-right text-[10px] mr-2"></i> Glow Sign Boards</a></li>
+                        <li><a href="services.html" class="hover:text-[var(--accent-orange)] transition-colors"><i class="fas fa-chevron-right text-[10px] mr-2"></i> Vinyl Printing</a></li>
+                        <li><a href="services.html" class="hover:text-[var(--accent-orange)] transition-colors"><i class="fas fa-chevron-right text-[10px] mr-2"></i> Rollup Standees</a></li>
+                        <li><a href="services.html" class="hover:text-[var(--accent-orange)] transition-colors"><i class="fas fa-chevron-right text-[10px] mr-2"></i> Exhibition Service</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-bold text-[15px] mb-6 font-oswald tracking-wide">Contact Us</h4>
+                    <ul class="space-y-4">
+                        <li class="flex items-start space-x-3">
+                            <i class="fas fa-map-marker-alt text-[var(--accent-orange)] mt-1"></i>
+                            <span>Near Zepto Store, Barat Ghar Road, Tugalpur, Pari Chowk, Greater Noida</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <i class="fas fa-phone-alt text-[var(--accent-orange)]"></i>
+                            <a href="tel:6396430466" class="hover:text-white transition-colors">6396430466</a>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <i class="fas fa-envelope text-[var(--accent-orange)]"></i>
+                            <a href="mailto:graphicsign159@gmail.com" class="hover:text-white transition-colors">graphicsign159@gmail.com</a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="border-t border-gray-800 pt-6 flex flex-col md:flex-row justify-between items-center text-[12px]">
+                <p class="mb-4 md:mb-0">&copy; 2026 Graphic Sign. All rights reserved.</p>
+                <div class="space-x-4">
+                    <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+                    <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Working Sticky WhatsApp Icon -->
+    <a href="https://wa.me/916396430466" class="whatsapp-float" aria-label="Chat with us on WhatsApp" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- ================= GET QUOTATION MODAL ================= -->
+    <div id="quote-modal" class="hidden fixed inset-0 z-[1000] flex items-center justify-center p-4 bg-gray-900/80 backdrop-blur-sm opacity-0 transition-opacity duration-300 custom-scrollbar">
+        <div id="quote-modal-box" class="bg-white rounded-3xl shadow-2xl w-full max-w-lg max-h-[95vh] overflow-y-auto transform scale-95 transition-transform duration-300 relative">
+            
+            <button onclick="closeQuoteModal()" class="absolute top-5 right-5 w-8 h-8 flex items-center justify-center bg-gray-100 rounded-full text-gray-500 hover:text-[var(--accent-orange)] hover:bg-gray-200 transition focus:outline-none">
+                <i class="fas fa-times text-lg"></i>
+            </button>
+            
+            <div class="p-8 md:p-10">
+                <h3 class="text-orange-accent font-bold text-[12px] uppercase tracking-super-wide mb-2">FAST & RELIABLE</h3>
+                <h2 class="font-oswald text-3xl font-bold text-gray-900 mb-6">Request a Free Quote</h2>
+                
+                <form action="mailto:graphicsign159@gmail.com" method="POST" enctype="text/plain" class="space-y-4">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-[11px] font-bold uppercase tracking-wider text-gray-600 mb-1">Name <span class="text-red-500">*</span></label>
+                            <input type="text" name="Name" required class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:border-[var(--accent-orange)] text-[14px] shadow-inner">
+                        </div>
+                        <div>
+                            <label class="block text-[11px] font-bold uppercase tracking-wider text-gray-600 mb-1">Phone <span class="text-red-500">*</span></label>
+                            <input type="tel" name="Phone" required class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:border-[var(--accent-orange)] text-[14px] shadow-inner">
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-[11px] font-bold uppercase tracking-wider text-gray-600 mb-1">Email <span class="text-red-500">*</span></label>
+                        <input type="email" name="Email" required class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:border-[var(--accent-orange)] text-[14px] shadow-inner">
+                    </div>
+
+                    <div>
+                        <label class="block text-[11px] font-bold uppercase tracking-wider text-gray-600 mb-1">Interested Service</label>
+                        <div class="relative">
+                            <select name="Service" class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:border-[var(--accent-orange)] text-[14px] appearance-none shadow-inner cursor-pointer">
+                                <option value="3D Acrylic Letters">3D Acrylic Letters</option>
+                                <option value="Glow Sign Board">Glow Sign Board</option>
+                                <option value="Vinyl Printing">Vinyl Printing</option>
+                                <option value="ACP Board">ACP Board</option>
+                                <option value="Exhibition Stall">Exhibition Stall</option>
+                                <option value="Other">Other Custom Signage</option>
+                            </select>
+                            <div class="absolute inset-y-0 right-0 pr-4 flex items-center pointer-events-none">
+                                <i class="fas fa-chevron-down text-gray-400 text-sm"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-[11px] font-bold uppercase tracking-wider text-gray-600 mb-1">Message / Dimensions <span class="text-red-500">*</span></label>
+                        <textarea name="Message" rows="3" placeholder="Tell us about your project..." required class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:border-[var(--accent-orange)] text-[14px] resize-y shadow-inner"></textarea>
+                    </div>
+                    
+                    <button type="submit" class="w-full bg-[var(--bg-dark-edge)] hover:bg-[var(--accent-orange)] text-white py-4 rounded-xl font-bold text-[14px] tracking-wide transition-all transform hover:-translate-y-1 duration-300 mt-2 flex items-center justify-center space-x-2">
+                        <span>SEND REQUEST</span>
+                        <i class="fas fa-paper-plane ml-1"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile Menu Toggle
+        const mobileBtn = document.getElementById('mobile-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Dynamic Service Modal Logic
+        const modal = document.getElementById('service-modal');
+        const modalBox = document.getElementById('modal-box');
+        const mTitle = document.getElementById('modal-title');
+        const mDesc = document.getElementById('modal-desc');
+        const mImg = document.getElementById('modal-img');
+        const mFeatures = document.getElementById('modal-features');
+        const mWaBtn = document.getElementById('modal-wa-btn');
+
+        function openServiceModal(element) {
+            const title = element.getAttribute('data-title');
+            const desc = element.getAttribute('data-desc');
+            const imgSrc = element.getAttribute('data-img');
+            const features = element.getAttribute('data-features').split(',');
+
+            mTitle.innerText = title;
+            mDesc.innerText = desc;
+            
+            mImg.src = imgSrc;
+            mImg.onerror = function() {
+                this.src = 'https://via.placeholder.com/600x600?text=' + encodeURIComponent(title);
+            };
+
+            mFeatures.innerHTML = '';
+            features.forEach(feature => {
+                const li = document.createElement('li');
+                li.className = "flex items-start text-gray-700 text-[14px]";
+                li.innerHTML = `<i class="fas fa-check-circle text-[var(--accent-orange)] mt-1 mr-3"></i> <span>${feature.trim()}</span>`;
+                mFeatures.appendChild(li);
+            });
+
+            const waMessage = encodeURIComponent(`Hi Graphic Sign, I would like to get a quote and more details regarding your ${title} service.`);
+            mWaBtn.href = `https://wa.me/916396430466?text=${waMessage}`;
+
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+                modalBox.classList.remove('scale-95');
+                modalBox.classList.add('scale-100');
+            }, 10);
+            
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeServiceModal() {
+            modal.classList.add('opacity-0');
+            modalBox.classList.remove('scale-100');
+            modalBox.classList.add('scale-95');
+            
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                document.body.style.overflow = '';
+            }, 300);
+        }
+
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                closeServiceModal();
+            }
+        });
+
+        // FAQ Accordion Logic
+        const faqBtns = document.querySelectorAll('.faq-btn');
+        faqBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                const content = this.nextElementSibling;
+                const icon = this.querySelector('i');
+                
+                faqBtns.forEach(otherBtn => {
+                    if (otherBtn !== this) {
+                        otherBtn.nextElementSibling.classList.add('hidden');
+                        otherBtn.querySelector('i').classList.remove('rotate-180');
+                    }
+                });
+
+                if (content.classList.contains('hidden')) {
+                    content.classList.remove('hidden');
+                    icon.classList.add('rotate-180');
+                } else {
+                    content.classList.add('hidden');
+                    icon.classList.remove('rotate-180');
+                }
+            });
+        });
+
+        // ================= QUOTATION MODAL LOGIC =================
+        const quoteModal = document.getElementById('quote-modal');
+        const quoteModalBox = document.getElementById('quote-modal-box');
+
+        function openQuoteModal() {
+            quoteModal.classList.remove('hidden');
+            setTimeout(() => {
+                quoteModal.classList.remove('opacity-0');
+                quoteModalBox.classList.remove('scale-95');
+                quoteModalBox.classList.add('scale-100');
+            }, 10);
+            document.body.style.overflow = 'hidden'; 
+        }
+
+        function closeQuoteModal() {
+            quoteModal.classList.add('opacity-0');
+            quoteModalBox.classList.remove('scale-100');
+            quoteModalBox.classList.add('scale-95');
+            setTimeout(() => {
+                quoteModal.classList.add('hidden');
+                document.body.style.overflow = '';
+            }, 300);
+        }
+
+        quoteModal.addEventListener('click', function(e) {
+            if (e.target === quoteModal) {
+                closeQuoteModal();
+            }
+        });
+    </script>
+</body>
+</html>
