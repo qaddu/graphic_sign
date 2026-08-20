@@ -97,6 +97,9 @@
         .custom-scrollbar::-webkit-scrollbar { width: 6px; }
         .custom-scrollbar::-webkit-scrollbar-track { background: #f1f1f1; border-radius: 4px; }
         .custom-scrollbar::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+
+        /* Gallery error state (added, matches existing style language) */
+        #gallery-error { display: none; }
     </style>
 </head>
 <body>
@@ -218,6 +221,9 @@
             <div id="gallery-loader" class="flex justify-center items-center py-6">
                 <i class="fas fa-spinner fa-spin text-3xl text-[var(--accent-orange)]"></i>
             </div>
+
+            <!-- Error message (only shows if the sheet fails to load) -->
+            <div id="gallery-error" class="text-red-500 font-semibold py-6"></div>
 
             <!-- The Masonry Grid -->
             <div class="masonry-grid text-left hidden" id="gallery-container">
@@ -441,7 +447,7 @@
         // GOOGLE SHEETS PARSING (Powered by PapaParse for 100% Reliability)
         // ======================================================================
         
-        // 1. YOUR NEW PUBLISHED CSV URL GOES HERE:
+        // 1. YOUR PUBLISHED CSV URL:
         // Format expected: Column 1 = Image_URL, Column 2 = Category, Column 3 = Project_Name
         // We add a cache-buster parameter at the end to force the browser to get the freshest data
         const galleryCsvUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSr0FX7Xjfew_VSfw3doC8IKS2RzPhrCgNMI4S7oAYvOsS4v_osViXUOLCAwvB-juWlXsH7kjN1yPu0/pub?output=csv&t=' + new Date().getTime();
@@ -451,6 +457,18 @@
         let filteredData = [];
         let currentLoadCount = 0;
         const itemsPerLoad = 6; 
+
+        function showGalleryError(message) {
+            const loader = document.getElementById('gallery-loader');
+            const errorBox = document.getElementById('gallery-error');
+            if (loader) loader.classList.add('hidden');
+            if (errorBox) {
+                errorBox.textContent = message;
+                errorBox.style.display = 'block';
+            }
+            // Also log full detail to console for debugging
+            console.error('[Gallery Load Error]', message);
+        }
 
         if (galleryCsvUrl !== '') {
             Papa.parse(galleryCsvUrl, {
@@ -462,6 +480,11 @@
                     return header.replace(/[\u200B-\u200D\uFEFF]/g, '').trim();
                 },
                 complete: function(results) {
+                    if (!results || !results.data || results.data.length === 0) {
+                        showGalleryError('No rows were found in the Google Sheet. Make sure the sheet has at least one data row under the headers Image_URL, Category, Project_Name.');
+                        return;
+                    }
+
                     results.data.forEach(row => {
                         // We use a fallback system just in case the headers are named slightly differently
                         const keys = Object.keys(row);
@@ -482,14 +505,22 @@
                         }
                     });
 
+                    if (allGalleryData.length === 0) {
+                        showGalleryError('The sheet loaded, but no rows had a value in the Image_URL column.');
+                        return;
+                    }
+
                     filteredData = [...allGalleryData];
                     document.getElementById('gallery-loader').classList.add('hidden');
                     document.getElementById('gallery-container').classList.remove('hidden');
                     renderGalleryItems();
                 },
                 error: function(error) {
-                    console.error("Error loading gallery data:", error);
-                    document.getElementById('gallery-loader').classList.add('hidden');
+                    // This is the branch that fires when the browser can't reach/read the CSV at all -
+                    // almost always because the page is being opened as a local file (file://...) instead
+                    // of being served over http/https. Google Sheets blocks cross-origin requests coming
+                    // from the file:// origin, so the fetch dies silently unless you're on a real server.
+                    showGalleryError('Could not load the gallery from Google Sheets (' + (error && error.message ? error.message : 'network error') + '). If you are opening this file directly from your computer (file://), that will not work - Google Sheets blocks that. Run this page from a local server (e.g. VS Code "Live Server") or upload it to real hosting, then reload.');
                 }
             });
         }
