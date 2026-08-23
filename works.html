@@ -89,6 +89,11 @@
         #lightbox img { max-width: 90%; max-height: 90%; border-radius: 8px; box-shadow: 0 10px 40px rgba(0,0,0,0.5); }
         #lightbox-close { position: absolute; top: 30px; right: 40px; color: white; font-size: 40px; cursor: pointer; transition: color 0.2s; }
         #lightbox-close:hover { color: var(--accent-orange); }
+        #lightbox-prev, #lightbox-next { position: absolute; top: 50%; transform: translateY(-50%); color: white; font-size: 32px; cursor: pointer; transition: color 0.2s; width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; }
+        #lightbox-prev:hover, #lightbox-next:hover { color: var(--accent-orange); }
+        #lightbox-prev { left: 15px; }
+        #lightbox-next { right: 15px; }
+        @media (min-width: 768px) { #lightbox-prev { left: 40px; } #lightbox-next { right: 40px; } }
 
         /* Floating WhatsApp CTA */
         .whatsapp-float { position: fixed; bottom: 30px; right: 30px; background-color: #25d366; color: white; border-radius: 50%; width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; font-size: 35px; box-shadow: 0px 4px 15px rgba(0,0,0,0.3); z-index: 90; transition: transform 0.2s ease, box-shadow 0.2s ease; }
@@ -251,7 +256,9 @@
     <!-- Fullscreen Image Viewer Modal -->
     <div id="lightbox" onclick="closeLightbox()">
         <span id="lightbox-close">&times;</span>
+        <span id="lightbox-prev" onclick="event.stopPropagation(); showPrevImage();"><i class="fas fa-chevron-left"></i></span>
         <img id="lightbox-img" src="" alt="Fullscreen view">
+        <span id="lightbox-next" onclick="event.stopPropagation(); showNextImage();"><i class="fas fa-chevron-right"></i></span>
     </div>
 
     <!-- ================= PREMIUM FOOTER ================= -->
@@ -413,19 +420,43 @@
         }
         if(quoteModal) { quoteModal.addEventListener('click', function(e) { if (e.target === quoteModal) closeQuoteModal(); }); }
 
-        // --- Lightbox Logic ---
+        // --- Lightbox Logic (now index-based so Prev/Next can slide through the currently filtered images) ---
         const lightbox = document.getElementById('lightbox');
         const lightboxImg = document.getElementById('lightbox-img');
-        function openLightbox(imageSrc) {
-            lightbox.style.display = 'flex';
-            lightboxImg.src = imageSrc;
+        let currentLightboxIndex = 0;
+
+        function updateLightboxImage() {
+            const item = filteredData[currentLightboxIndex];
+            if (!item) return;
+            lightboxImg.src = item.url;
             lightboxImg.onerror = function() { this.src = 'https://via.placeholder.com/800x600?text=Image+Not+Found'; };
+        }
+        function openLightbox(index) {
+            currentLightboxIndex = index;
+            updateLightboxImage();
+            lightbox.style.display = 'flex';
         }
         function closeLightbox() {
             lightbox.style.display = 'none';
             lightboxImg.src = '';
         }
+        function showNextImage() {
+            if (filteredData.length === 0) return;
+            currentLightboxIndex = (currentLightboxIndex + 1) % filteredData.length;
+            updateLightboxImage();
+        }
+        function showPrevImage() {
+            if (filteredData.length === 0) return;
+            currentLightboxIndex = (currentLightboxIndex - 1 + filteredData.length) % filteredData.length;
+            updateLightboxImage();
+        }
         lightbox.addEventListener('click', function(e) { if (e.target !== lightboxImg) closeLightbox(); });
+        document.addEventListener('keydown', function(e) {
+            if (lightbox.style.display !== 'flex') return;
+            if (e.key === 'ArrowRight') showNextImage();
+            if (e.key === 'ArrowLeft') showPrevImage();
+            if (e.key === 'Escape') closeLightbox();
+        });
 
         // --- Animated Stats Counter ---
         const counters = document.querySelectorAll('.stat-counter');
@@ -541,9 +572,10 @@
             const viewMoreBtnContainer = document.getElementById('view-more-container');
             const batch = filteredData.slice(currentLoadCount, currentLoadCount + itemsPerLoad);
             
-            batch.forEach(item => {
+            batch.forEach((item, i) => {
+                const itemIndex = currentLoadCount + i;
                 const html = `
-                    <div class="masonry-item" data-category="${item.category}" onclick="openLightbox('${item.url}')">
+                    <div class="masonry-item" data-category="${item.category}" onclick="openLightbox(${itemIndex})">
                         <img src="${item.url}" alt="${item.name}" onerror="this.src='https://via.placeholder.com/600x600?text=Broken+Image+Link'">
                         <div class="masonry-overlay">
                             <span class="bg-[var(--accent-orange)] text-white text-[10px] font-bold px-3 py-1 rounded-sm w-max mb-2">${item.category}</span>
