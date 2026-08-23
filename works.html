@@ -244,10 +244,13 @@
             <div class="masonry-grid text-left hidden" id="gallery-container">
             </div>
 
-            <!-- View More Button -->
+            <!-- View More / Show Less Buttons -->
             <div class="mt-12 hidden" id="view-more-container">
                 <button id="view-more-btn" class="inline-block border-2 border-[var(--accent-orange)] text-[var(--accent-orange)] bg-transparent hover:bg-[var(--accent-orange)] hover:text-white px-10 py-3 rounded-[6px] font-bold text-[13px] tracking-widest transition-all duration-300 transform hover:-translate-y-1">
                     VIEW MORE WORK
+                </button>
+                <button id="show-less-btn" class="hidden inline-block border-2 border-[var(--accent-orange)] text-[var(--accent-orange)] bg-transparent hover:bg-[var(--accent-orange)] hover:text-white px-10 py-3 rounded-[6px] font-bold text-[13px] tracking-widest transition-all duration-300 transform hover:-translate-y-1">
+                    SHOW LESS
                 </button>
             </div>
             
@@ -571,6 +574,8 @@
         function renderGalleryItems() {
             const galleryContainer = document.getElementById('gallery-container');
             const viewMoreBtnContainer = document.getElementById('view-more-container');
+            const viewMoreBtn = document.getElementById('view-more-btn');
+            const showLessBtn = document.getElementById('show-less-btn');
             const batch = filteredData.slice(currentLoadCount, currentLoadCount + itemsPerLoad);
             
             batch.forEach((item, i) => {
@@ -588,15 +593,34 @@
             });
 
             currentLoadCount += batch.length;
-            if (currentLoadCount >= filteredData.length && filteredData.length > 0) {
+
+            if (filteredData.length <= itemsPerLoad || filteredData.length === 0) {
+                // Not enough items to ever need View More / Show Less
                 viewMoreBtnContainer.classList.add('hidden');
-            } else if (filteredData.length > 0) {
+            } else if (currentLoadCount >= filteredData.length) {
+                // Everything is loaded - offer Show Less instead
                 viewMoreBtnContainer.classList.remove('hidden');
+                viewMoreBtn.classList.add('hidden');
+                showLessBtn.classList.remove('hidden');
+            } else {
+                // More items remain - offer View More
+                viewMoreBtnContainer.classList.remove('hidden');
+                viewMoreBtn.classList.remove('hidden');
+                showLessBtn.classList.add('hidden');
             }
+        }
+
+        // Collapse back down to the first batch (mirrors View More's own render call)
+        function collapseGalleryItems() {
+            document.getElementById('gallery-container').innerHTML = '';
+            currentLoadCount = 0;
+            renderGalleryItems();
+            document.getElementById('gallery-filters').scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
 
         // Event Listeners for Gallery
         document.getElementById('view-more-btn').addEventListener('click', renderGalleryItems);
+        document.getElementById('show-less-btn').addEventListener('click', collapseGalleryItems);
 
         document.querySelectorAll('.filter-btn').forEach(btn => {
             btn.addEventListener('click', () => {
