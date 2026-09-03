@@ -12,7 +12,14 @@
     <meta name="keywords" content="About Graphic Sign, Sign Board Manufacturer Greater Noida, In-house Signage Factory, CNC Router Signage, CO2 Laser Cutting Noida, CEO Graphic Sign, Pari Chowk Sign Makers">
     <meta name="author" content="Graphic Sign">
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://yourwebsite.com/about.html">
+    <link rel="canonical" href="https://graphicsign.in/about.html">
+
+    <!-- Open Graph for Social Media Sharing -->
+    <meta property="og:title" content="About Graphic Sign | Top Signage Manufacturer in Greater Noida">
+    <meta property="og:description" content="Learn about Graphic Sign's in-house CNC, laser, and vinyl printing facility in Greater Noida.">
+    <meta property="og:image" content="logo.png">
+    <meta property="og:url" content="https://graphicsign.in/about.html">
+    <meta property="og:type" content="website">
 
     <!-- JSON-LD Structured Data (AboutPage & LocalBusiness combination) -->
     <script type="application/ld+json">
@@ -21,17 +28,23 @@
       "@graph": [
         {
           "@type": "AboutPage",
-          "url": "https://yourwebsite.com/about.html",
+          "url": "https://graphicsign.in/about.html",
           "name": "About Graphic Sign",
-          "description": "Information about Graphic Sign's history, in-house machinery, and mission to deliver premium signage in Greater Noida."
+          "description": "Information about Graphic Sign's history, in-house machinery, and mission to deliver premium signage in Greater Noida.",
+          "isPartOf": {
+            "@id": "https://graphicsign.in/"
+          }
         },
         {
           "@type": "LocalBusiness",
           "name": "Graphic Sign",
           "image": "logo.png",
           "description": "Premium signage manufacturer in Greater Noida featuring in-house CO2 Laser, CNC Router, and Vinyl Printing capabilities.",
+          "@id": "https://graphicsign.in/",
+          "url": "https://graphicsign.in/",
           "telephone": "+916396430466",
           "email": "graphicsign159@gmail.com",
+          "priceRange": "$$",
           "address": {
             "@type": "PostalAddress",
             "streetAddress": "Near Zepto Store, Barat Ghar Road, Tugalpur",
@@ -40,6 +53,23 @@
             "postalCode": "201310",
             "addressCountry": "IN"
           },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 28.4627424,
+            "longitude": 77.5033481
+          },
+          "openingHoursSpecification": {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": [
+              "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"
+            ],
+            "opens": "09:00",
+            "closes": "20:00"
+          },
+          "sameAs": [
+            "https://www.facebook.com/yourprofile",
+            "https://www.instagram.com/yourprofile"
+          ],
           "knowsAbout": ["3D Acrylic Letters", "CNC Routing", "CO2 Laser Cutting", "Glow Sign Boards", "Vinyl Printing"]
         }
       ]
@@ -522,6 +552,10 @@
                             <i class="fas fa-envelope text-[var(--accent-orange)]"></i>
                             <a href="mailto:graphicsign159@gmail.com" class="hover:text-white transition-colors">graphicsign159@gmail.com</a>
                         </li>
+                        <li class="flex items-center space-x-3">
+                            <i class="fas fa-globe text-[var(--accent-orange)]"></i>
+                            <a href="http://graphicsign.in/" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">graphicsign.in</a>
+                        </li>
                     </ul>
                 </div>
 
@@ -554,7 +588,7 @@
                 <h3 class="text-orange-accent font-bold text-[12px] uppercase tracking-super-wide mb-2">FAST & RELIABLE</h3>
                 <h2 class="font-oswald text-3xl font-bold text-gray-900 mb-6">Request a Free Quote</h2>
                 
-                <form action="mailto:graphicsign159@gmail.com" method="POST" enctype="text/plain" class="space-y-4">
+                <form id="quote-form" class="space-y-4">
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div>
                             <label class="block text-[11px] font-bold uppercase tracking-wider text-gray-600 mb-1">Name <span class="text-red-500">*</span></label>
@@ -577,9 +611,19 @@
                             <select name="Service" class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:border-[var(--accent-orange)] text-[14px] appearance-none shadow-inner cursor-pointer">
                                 <option value="3D Acrylic Letters">3D Acrylic Letters</option>
                                 <option value="Glow Sign Board">Glow Sign Board</option>
+                                <option value="Neon Sign">Neon Sign</option>
+                                <option value="Clip-on Sign Board">Clip-on Sign Board</option>
+                                <option value="Blackout Board">Blackout Board</option>
                                 <option value="Vinyl Printing">Vinyl Printing</option>
                                 <option value="ACP Board">ACP Board</option>
                                 <option value="Exhibition Stall">Exhibition Stall</option>
+                                <option value="Standee">Standee</option>
+                                <option value="Civil Work">Civil Work</option>
+                                <option value="Aluminium Work">Aluminium Work</option>
+                                <option value="Lollipop Board">Lollipop Board</option>
+                                <option value="Name Plate">Name Plate</option>
+                                <option value="Digital Print">Digital Print</option>
+                                <option value="3D Letters">3D Letters</option>
                                 <option value="Other">Other Custom Signage</option>
                             </select>
                             <div class="absolute inset-y-0 right-0 pr-4 flex items-center pointer-events-none">
@@ -652,6 +696,37 @@
                 }
             });
         }
+
+        // ================= WORKING QUOTE FORM (mailto) =================
+        // Browsers block/ignore <form action="mailto:..." method="POST">, so it never
+        // actually opened an email. This builds a proper "mailto:" link with the
+        // subject/body pre-filled from the form fields and opens it on submit.
+        function setupMailtoForm(form, options) {
+            options = options || {};
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+
+                const name = form.Name.value.trim();
+                const phone = form.Phone.value.trim();
+                const email = form.Email.value.trim();
+                const service = form.Service ? form.Service.value : '';
+                const message = form.Message.value.trim();
+
+                const subject = 'New Quotation Request - ' + name;
+                let body = 'Name: ' + name + '\n' + 'Phone: ' + phone + '\n' + 'Email: ' + email + '\n';
+                if (service) { body += 'Interested Service: ' + service + '\n'; }
+                body += 'Message / Dimensions: ' + message;
+
+                const mailtoLink = 'mailto:graphicsign159@gmail.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+                window.location.href = mailtoLink;
+
+                form.reset();
+                if (options.closeModal) { closeQuoteModal(); }
+            });
+        }
+
+        const quoteForm = document.getElementById('quote-form');
+        if (quoteForm) { setupMailtoForm(quoteForm, { closeModal: true }); }
     </script>
 </body>
 </html>
