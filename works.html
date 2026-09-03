@@ -20,14 +20,25 @@
       "@context": "https://schema.org",
       "@graph": [
         {
+          "@type": "WebSite",
+          "name": "Graphic Sign",
+          "alternateName": "graphicsign.in",
+          "url": "https://graphicsign.in/"
+        },
+        {
           "@type": "CollectionPage",
-          "url": "https://yourwebsite.com/works.html",
-          "name": "Graphic Sign Portfolio",
-          "description": "Gallery of recent signage projects completed by Graphic Sign in Greater Noida."
+          "url": "https://graphicsign.in/works.html",
+          "name": "Graphic Sign Portfolio - Works Page",
+          "description": "Gallery of recent signage projects completed by Graphic Sign in Greater Noida.",
+          "isPartOf": {
+            "@type": "WebSite",
+            "url": "https://graphicsign.in/"
+          }
         },
         {
           "@type": "LocalBusiness",
           "name": "Graphic Sign",
+          "url": "https://graphicsign.in/",
           "image": "logo.png",
           "telephone": "+916396430466",
           "email": "graphicsign159@gmail.com",
@@ -351,7 +362,7 @@
             <div class="p-8 md:p-10">
                 <h3 class="text-orange-accent font-bold text-[12px] uppercase tracking-super-wide mb-2">FAST & RELIABLE</h3>
                 <h2 class="font-oswald text-3xl font-bold text-gray-900 mb-6">Request a Free Quote</h2>
-                <form action="mailto:graphicsign159@gmail.com" method="POST" enctype="text/plain" class="space-y-4">
+                <form id="quote-form" class="space-y-4">
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div>
                             <label class="block text-[11px] font-bold uppercase tracking-wider text-gray-600 mb-1">Name <span class="text-red-500">*</span></label>
@@ -427,6 +438,38 @@
             }, 300);
         }
         if(quoteModal) { quoteModal.addEventListener('click', function(e) { if (e.target === quoteModal) closeQuoteModal(); }); }
+
+        // --- Get Quotation Form Logic ---
+        // Browsers block/ignore <form action="mailto:..." method="POST">, so the old markup
+        // never actually opened an email. Instead we build a proper "mailto:" link (which browsers
+        // DO support) with the subject and body pre-filled from the form, and open it on submit.
+        const quoteForm = document.getElementById('quote-form');
+        if (quoteForm) {
+            quoteForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+
+                const name = quoteForm.Name.value.trim();
+                const phone = quoteForm.Phone.value.trim();
+                const email = quoteForm.Email.value.trim();
+                const service = quoteForm.Service.value;
+                const message = quoteForm.Message.value.trim();
+
+                const subject = 'New Quotation Request - ' + name;
+                const body =
+                    'Name: ' + name + '\n' +
+                    'Phone: ' + phone + '\n' +
+                    'Email: ' + email + '\n' +
+                    'Interested Service: ' + service + '\n' +
+                    'Message / Dimensions: ' + message;
+
+                const mailtoLink = 'mailto:graphicsign159@gmail.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+
+                window.location.href = mailtoLink;
+
+                quoteForm.reset();
+                closeQuoteModal();
+            });
+        }
 
         // --- Lightbox Logic (now index-based so Prev/Next can slide through the currently filtered images) ---
         const lightbox = document.getElementById('lightbox');
