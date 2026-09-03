@@ -280,6 +280,142 @@
         <span id="lightbox-next" onclick="event.stopPropagation(); showNextImage();"><i class="fas fa-chevron-right"></i></span>
     </div>
 
+    <!-- ================= OUR CLIENTS SECTION ================= -->
+    <style>
+        /* Scoped Animation Logic for the Infinite Marquee */
+        .client-marquee-wrapper {
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            width: 100%;
+            /* Adds a soft fade effect on the left and right edges */
+            mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+            -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+        }
+        .track-left {
+            display: flex;
+            width: max-content;
+            gap: 1.5rem;
+            animation: scroll-left 40s linear infinite;
+        }
+        .track-right {
+            display: flex;
+            width: max-content;
+            gap: 1.5rem;
+            animation: scroll-right 40s linear infinite;
+        }
+        /* Pauses the animation when a user hovers over a logo */
+        .track-left:hover, .track-right:hover {
+            animation-play-state: paused;
+        }
+        @keyframes scroll-left {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        @keyframes scroll-right {
+            0% { transform: translateX(-50%); }
+            100% { transform: translateX(0); }
+        }
+    </style>
+
+    <section id="clients" class="py-16 md:py-24 bg-white border-t border-gray-200">
+        <div class="container mx-auto text-center w-full max-w-[100vw] overflow-hidden px-4 md:px-0">
+            <h3 class="text-orange-accent font-bold text-[12px] uppercase tracking-super-wide mb-3">OUR CLIENTS</h3>
+            <h2 class="font-oswald text-3xl md:text-[45px] font-bold text-gray-900 mb-12 md:mb-16">Trusted By Premium Brands</h2>
+            
+            <div class="client-marquee-wrapper">
+                
+                <!-- ROW 1: SCROLLING LEFT -->
+                <div class="track-left">
+                    <!-- Original Set -->
+                    <div class="flex flex-col items-center justify-between p-5 bg-white border border-gray-100 rounded-xl shadow-[0_4px_15px_rgba(0,0,0,0.03)] hover:shadow-[0_10px_25px_rgba(216,109,40,0.15)] hover:border-[var(--accent-orange)] transition-all duration-300 w-48 h-32 shrink-0 group cursor-pointer transform hover:-translate-y-1">
+                        <div class="h-14 w-full flex items-center justify-center mb-2"><img src="expo_mart.png" alt="Expo Mart" class="max-h-full max-w-full object-contain filter grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500"></div>
+                        <span class="font-bold text-[13px] text-gray-600 group-hover:text-[var(--accent-orange)] transition-colors tracking-wide uppercase">Expo Mart</span>
+                    </div>
+                    <div class="flex flex-col items-center justify-between p-5 bg-white border border-gray-100 rounded-xl shadow-[0_4px_15px_rgba(0,0,0,0.03)] hover:shadow-[0_10px_25px_rgba(216,109,40,0.15)] hover:border-[var(--accent-orange)] transition-all duration-300 w-48 h-32 shrink-0 group cursor-pointer transform hover:-translate-y-1">
+                        <div class="h-14 w-full flex items-center justify-center mb-2"><img src="lenskart.jpg" alt="Lenskart" class="max-h-full max-w-full object-contain filter grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500"></div>
+                        <span class="font-bold text-[13px] text-gray-600 group-hover:text-[var(--accent-orange)] transition-colors tracking-wide uppercase">Lenskart</span>
+                    </div>
+                    <div class="flex flex-col items-center justify-between p-5 bg-white border border-gray-100 rounded-xl shadow-[0_4px_15px_rgba(0,0,0,0.03)] hover:shadow-[0_10px_25px_rgba(216,109,40,0.15)] hover:border-[var(--accent-orange)] transition-all duration-300 w-48 h-32 shrink-0 group cursor-pointer transform hover:-translate-y-1">
+                        <div class="h-14 w-full flex items-center justify-center mb-2"><img src="honda-logo.png" alt="Honda" class="max-h-full max-w-full object-contain filter grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500"></div>
+                        <span class="font-bold text-[13px] text-gray-600 group-hover:text-[var(--accent-orange)] transition-colors tracking-wide uppercase">Honda</span>
+                    </div>
+                    <div class="flex flex-col items-center justify-between p-5 bg-white border border-gray-100 rounded-xl shadow-[0_4px_15px_rgba(0,0,0,0.03)] hover:shadow-[0_10px_25px_rgba(216,109,40,0.15)] hover:border-[var(--accent-orange)] transition-all duration-300 w-48 h-32 shrink-0 group cursor-pointer transform hover:-translate-y-1">
+                        <div class="h-14 w-full flex items-center justify-center mb-2"><img src="sumiraj.jpg" alt="Sumiraj" class="max-h-full max-w-full object-contain filter grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500"></div>
+                        <span class="font-bold text-[13px] text-gray-600 group-hover:text-[var(--accent-orange)] transition-colors tracking-wide uppercase">Sumiraj</span>
+                    </div>
+                    <div class="flex flex-col items-center justify-between p-5 bg-white border border-gray-100 rounded-xl shadow-[0_4px_15px_rgba(0,0,0,0.03)] hover:shadow-[0_10px_25px_rgba(216,109,40,0.15)] hover:border-[var(--accent-orange)] transition-all duration-300 w-48 h-32 shrink-0 group cursor-pointer transform hover:-translate-y-1">
+                        <div class="h-14 w-full flex items-center justify-center mb-2"><img src="artha-logo.jpg" alt="Artha" class="max-h-full max-w-full object-contain filter grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500"></div>
+                        <span class="font-bold text-[13px] text-gray-600 group-hover:text-[var(--accent-orange)] transition-colors tracking-wide uppercase">Artha</span>
+                    </div>
+
+                    <!-- Duplicated Set for Infinite Loop -->
+                    <div class="flex flex-col items-center justify-between p-5 bg-white border border-gray-100 rounded-xl shadow-[0_4px_15px_rgba(0,0,0,0.03)] hover:shadow-[0_10px_25px_rgba(216,109,40,0.15)] hover:border-[var(--accent-orange)] transition-all duration-300 w-48 h-32 shrink-0 group cursor-pointer transform hover:-translate-y-1">
+                        <div class="h-14 w-full flex items-center justify-center mb-2"><img src="expo_mart.png" alt="Expo Mart" class="max-h-full max-w-full object-contain filter grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500"></div>
+                        <span class="font-bold text-[13px] text-gray-600 group-hover:text-[var(--accent-orange)] transition-colors tracking-wide uppercase">Expo Mart</span>
+                    </div>
+                    <div class="flex flex-col items-center justify-between p-5 bg-white border border-gray-100 rounded-xl shadow-[0_4px_15px_rgba(0,0,0,0.03)] hover:shadow-[0_10px_25px_rgba(216,109,40,0.15)] hover:border-[var(--accent-orange)] transition-all duration-300 w-48 h-32 shrink-0 group cursor-pointer transform hover:-translate-y-1">
+                        <div class="h-14 w-full flex items-center justify-center mb-2"><img src="lenskart.jpg" alt="Lenskart" class="max-h-full max-w-full object-contain filter grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500"></div>
+                        <span class="font-bold text-[13px] text-gray-600 group-hover:text-[var(--accent-orange)] transition-colors tracking-wide uppercase">Lenskart</span>
+                    </div>
+                    <div class="flex flex-col items-center justify-between p-5 bg-white border border-gray-100 rounded-xl shadow-[0_4px_15px_rgba(0,0,0,0.03)] hover:shadow-[0_10px_25px_rgba(216,109,40,0.15)] hover:border-[var(--accent-orange)] transition-all duration-300 w-48 h-32 shrink-0 group cursor-pointer transform hover:-translate-y-1">
+                        <div class="h-14 w-full flex items-center justify-center mb-2"><img src="honda-logo.png" alt="Honda" class="max-h-full max-w-full object-contain filter grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500"></div>
+                        <span class="font-bold text-[13px] text-gray-600 group-hover:text-[var(--accent-orange)] transition-colors tracking-wide uppercase">Honda</span>
+                    </div>
+                    <div class="flex flex-col items-center justify-between p-5 bg-white border border-gray-100 rounded-xl shadow-[0_4px_15px_rgba(0,0,0,0.03)] hover:shadow-[0_10px_25px_rgba(216,109,40,0.15)] hover:border-[var(--accent-orange)] transition-all duration-300 w-48 h-32 shrink-0 group cursor-pointer transform hover:-translate-y-1">
+                        <div class="h-14 w-full flex items-center justify-center mb-2"><img src="sumiraj.jpg" alt="Sumiraj" class="max-h-full max-w-full object-contain filter grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500"></div>
+                        <span class="font-bold text-[13px] text-gray-600 group-hover:text-[var(--accent-orange)] transition-colors tracking-wide uppercase">Sumiraj</span>
+                    </div>
+                    <div class="flex flex-col items-center justify-between p-5 bg-white border border-gray-100 rounded-xl shadow-[0_4px_15px_rgba(0,0,0,0.03)] hover:shadow-[0_10px_25px_rgba(216,109,40,0.15)] hover:border-[var(--accent-orange)] transition-all duration-300 w-48 h-32 shrink-0 group cursor-pointer transform hover:-translate-y-1">
+                        <div class="h-14 w-full flex items-center justify-center mb-2"><img src="artha-logo.jpg" alt="Artha" class="max-h-full max-w-full object-contain filter grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500"></div>
+                        <span class="font-bold text-[13px] text-gray-600 group-hover:text-[var(--accent-orange)] transition-colors tracking-wide uppercase">Artha</span>
+                    </div>
+                </div>
+
+                <!-- ROW 2: SCROLLING RIGHT -->
+                <div class="track-right" style="transform: translateX(-50%);">
+                    <!-- Original Set -->
+                    <div class="flex flex-col items-center justify-between p-5 bg-white border border-gray-100 rounded-xl shadow-[0_4px_15px_rgba(0,0,0,0.03)] hover:shadow-[0_10px_25px_rgba(216,109,40,0.15)] hover:border-[var(--accent-orange)] transition-all duration-300 w-48 h-32 shrink-0 group cursor-pointer transform hover:-translate-y-1">
+                        <div class="h-14 w-full flex items-center justify-center mb-2"><img src="r_system.png" alt="R Systems" class="max-h-full max-w-full object-contain filter grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500"></div>
+                        <span class="font-bold text-[13px] text-gray-600 group-hover:text-[var(--accent-orange)] transition-colors tracking-wide uppercase">R Systems</span>
+                    </div>
+                    <div class="flex flex-col items-center justify-between p-5 bg-white border border-gray-100 rounded-xl shadow-[0_4px_15px_rgba(0,0,0,0.03)] hover:shadow-[0_10px_25px_rgba(216,109,40,0.15)] hover:border-[var(--accent-orange)] transition-all duration-300 w-48 h-32 shrink-0 group cursor-pointer transform hover:-translate-y-1">
+                        <div class="h-14 w-full flex items-center justify-center mb-2"><img src="npcl.png" alt="NPCL" class="max-h-full max-w-full object-contain filter grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500"></div>
+                        <span class="font-bold text-[13px] text-gray-600 group-hover:text-[var(--accent-orange)] transition-colors tracking-wide uppercase">NPCL</span>
+                    </div>
+                    <div class="flex flex-col items-center justify-between p-5 bg-white border border-gray-100 rounded-xl shadow-[0_4px_15px_rgba(0,0,0,0.03)] hover:shadow-[0_10px_25px_rgba(216,109,40,0.15)] hover:border-[var(--accent-orange)] transition-all duration-300 w-48 h-32 shrink-0 group cursor-pointer transform hover:-translate-y-1">
+                        <div class="h-14 w-full flex items-center justify-center mb-2"><img src="asian-paints-vector-logo.png" alt="Asian Paints" class="max-h-full max-w-full object-contain filter grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500"></div>
+                        <span class="font-bold text-[13px] text-gray-600 group-hover:text-[var(--accent-orange)] transition-colors tracking-wide uppercase">Asian Paints</span>
+                    </div>
+                    <div class="flex flex-col items-center justify-between p-5 bg-white border border-gray-100 rounded-xl shadow-[0_4px_15px_rgba(0,0,0,0.03)] hover:shadow-[0_10px_25px_rgba(216,109,40,0.15)] hover:border-[var(--accent-orange)] transition-all duration-300 w-48 h-32 shrink-0 group cursor-pointer transform hover:-translate-y-1">
+                        <div class="h-14 w-full flex items-center justify-center mb-2"><img src="shell.jpg" alt="Shell" class="max-h-full max-w-full object-contain filter grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500"></div>
+                        <span class="font-bold text-[13px] text-gray-600 group-hover:text-[var(--accent-orange)] transition-colors tracking-wide uppercase">Shell</span>
+                    </div>
+
+                    <!-- Duplicated Set for Infinite Loop -->
+                    <div class="flex flex-col items-center justify-between p-5 bg-white border border-gray-100 rounded-xl shadow-[0_4px_15px_rgba(0,0,0,0.03)] hover:shadow-[0_10px_25px_rgba(216,109,40,0.15)] hover:border-[var(--accent-orange)] transition-all duration-300 w-48 h-32 shrink-0 group cursor-pointer transform hover:-translate-y-1">
+                        <div class="h-14 w-full flex items-center justify-center mb-2"><img src="r_system.png" alt="R Systems" class="max-h-full max-w-full object-contain filter grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500"></div>
+                        <span class="font-bold text-[13px] text-gray-600 group-hover:text-[var(--accent-orange)] transition-colors tracking-wide uppercase">R Systems</span>
+                    </div>
+                    <div class="flex flex-col items-center justify-between p-5 bg-white border border-gray-100 rounded-xl shadow-[0_4px_15px_rgba(0,0,0,0.03)] hover:shadow-[0_10px_25px_rgba(216,109,40,0.15)] hover:border-[var(--accent-orange)] transition-all duration-300 w-48 h-32 shrink-0 group cursor-pointer transform hover:-translate-y-1">
+                        <div class="h-14 w-full flex items-center justify-center mb-2"><img src="npcl.png" alt="NPCL" class="max-h-full max-w-full object-contain filter grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500"></div>
+                        <span class="font-bold text-[13px] text-gray-600 group-hover:text-[var(--accent-orange)] transition-colors tracking-wide uppercase">NPCL</span>
+                    </div>
+                    <div class="flex flex-col items-center justify-between p-5 bg-white border border-gray-100 rounded-xl shadow-[0_4px_15px_rgba(0,0,0,0.03)] hover:shadow-[0_10px_25px_rgba(216,109,40,0.15)] hover:border-[var(--accent-orange)] transition-all duration-300 w-48 h-32 shrink-0 group cursor-pointer transform hover:-translate-y-1">
+                        <div class="h-14 w-full flex items-center justify-center mb-2"><img src="asian-paints-vector-logo.png" alt="Asian Paints" class="max-h-full max-w-full object-contain filter grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500"></div>
+                        <span class="font-bold text-[13px] text-gray-600 group-hover:text-[var(--accent-orange)] transition-colors tracking-wide uppercase">Asian Paints</span>
+                    </div>
+                    <div class="flex flex-col items-center justify-between p-5 bg-white border border-gray-100 rounded-xl shadow-[0_4px_15px_rgba(0,0,0,0.03)] hover:shadow-[0_10px_25px_rgba(216,109,40,0.15)] hover:border-[var(--accent-orange)] transition-all duration-300 w-48 h-32 shrink-0 group cursor-pointer transform hover:-translate-y-1">
+                        <div class="h-14 w-full flex items-center justify-center mb-2"><img src="shell.jpg" alt="Shell" class="max-h-full max-w-full object-contain filter grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500"></div>
+                        <span class="font-bold text-[13px] text-gray-600 group-hover:text-[var(--accent-orange)] transition-colors tracking-wide uppercase">Shell</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
     <!-- ================= PREMIUM FOOTER ================= -->
     <footer class="bg-[var(--bg-dark-edge)] pt-12 md:pt-16 pb-8 border-t border-gray-800 text-gray-400 text-[13px]">
         <div class="container mx-auto px-5 max-w-7xl">
@@ -419,6 +555,8 @@
             </div>
         </div>
     </div>
+
+
 
     <!-- JavaScript Base Logic -->
     <script>
